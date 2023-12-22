@@ -14,7 +14,6 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -25,6 +24,19 @@
             font-size: 24px;
             text-align: center;
         }
+
+        #jump {
+            font-size: 12pt;
+        }
+        #jump a:link, a:visited {
+            color: white;
+        }
+
+        #privacy {
+            font-size: 11pt;
+            max-width: 400px;
+        }
+
         #mc_embed_signup{
             padding: 1em;
             color: black;
@@ -64,7 +76,7 @@
             object-fit: cover;
         }
 
-         /* Responsive adjustments */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             body {
                 padding: 10px; /* Add some padding on smaller screens */
@@ -78,6 +90,7 @@
     </style>
 </head>
 <body>
+    <div><p id="jump">Jump to <a href="#privacy">App Privacy Policy</a></p></div>
     <div id="mc_embed_shell">
         <div id="mc_embed_signup">
             <div id="overview">
@@ -94,7 +107,25 @@
                 </div>
             </form>
         </div>
-        <p><a href="privacy.html">App privacy policy</a></p>
-        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
 
-        </html>
+        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+    </div>
+
+    <div id="privacy">
+       <h2>Privacy Policy</h2>
+    <p>We value user privacy and do not share user data with any 3rd parties, except for core app functionality like user login. This policy applies specifically to the iOS app's released by Apposite, including but not limited to SageBrush: AI Painter</p>
+
+<p>SageBrush / Apposite LLC ("we") do not collect any personal information, nor do we information specific to your artwork such as prompts or sketches beyond the time necessary to process your generated imagery, or to the extent required for basic functionality like authentication.</p>
+
+<p>We also do not share your infomration with any 3rd parties.</p>
+
+<p>Any and all personally identifable information is anonymized wherever possible. The sole exception is for authentication:</p>
+
+<h3>Authentication:</h3> 
+<p>To manage your account effectively, we may collect information necessary for authentication and account access.</p>
+
+<h3>Data Usage:</h3> 
+<p>We collect data essential for the operation of the App and improving user experience. We respect your privacy and handle all personal information in accordance with our Privacy Policy. This may include email address, display name, phone number if using 2-factor authentication. The app generates and stores a unique identifier for user authentication purposes.</p>
+
+    </body>
+    </html>
