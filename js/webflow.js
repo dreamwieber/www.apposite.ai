@@ -60,10 +60,3 @@ timm/lib/timm.js:
    * @license MIT
    *)
 */
-/**
- * ----------------------------------------------------------------------
- * Webflow: Interactions 2.0: Init
- */
-Webflow.require('ix2').init(
-{"events":{"e-5":{"id":"e-5","name":"","animationType":"custom","eventTypeId":"MOUSE_CLICK","action":{"id":"","actionTypeId":"GENERAL_START_ACTION","config":{"delay":0,"easing":"","duration":0,"actionListId":"a","affectedElements":{},"playInReverse":false,"autoStopEventId":"e-6"}},"mediaQueries":["main","medium","small","tiny"],"target":{"appliesTo":"ELEMENT","styleBlockIds":[],"id":"658b53fd491fdddf1ae09254|1a75427a-6c44-dedd-4803-4bbfd500cdad"},"targets":[],"config":{"loop":false,"playInReverse":false,"scrollOffsetValue":null,"scrollOffsetUnit":null,"delay":null,"direction":null,"effectIn":null},"createdOn":1703697203925}},"actionLists":{"a":{"id":"a","title":"ShowVideoModal","actionItemGroups":[{"actionItems":[{"id":"a-n","actionTypeId":"GENERAL_DISPLAY","config":{"delay":0,"easing":"","duration":0,"value":"block","target":{"id":"658b53fd491fdddf1ae09254|acf46ed4-c1cd-ca14-e8a5-d3ac3932485a"}}}]}],"createdOn":1703697455807,"useFirstGroupAsInitialState":false}},"site":{"mediaQueries":[{"key":"main","min":992,"max":10000},{"key":"medium","min":768,"max":991},{"key":"small","min":480,"max":767},{"key":"tiny","min":0,"max":479}]}}
-);

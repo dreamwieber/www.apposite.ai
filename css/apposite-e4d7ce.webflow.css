@@ -98,7 +98,7 @@
   border: 2px solid #86cea4;
   border-radius: 24px;
   align-self: center;
-  padding: 10px 8px;
+  padding: 14px 8px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   line-height: 14px;
 }
@@ -108,7 +108,7 @@
   border: 3px solid #86cea4;
   border-radius: 40px;
   padding: 16px 20px;
-  display: none;
+  display: block;
 }
 
 .link {
@@ -192,6 +192,7 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   font-size: 24px;
   font-weight: 500;
+  text-decoration: none;
   display: flex;
 }
 
@@ -216,6 +217,7 @@
 
 .link-block {
   font-family: Open Sans, sans-serif;
+  text-decoration: none;
 }
 
 .link-block.w--current {
@@ -367,6 +369,64 @@
   display: flex;
 }
 
+.div-block-12 {
+  width: 100%;
+  height: 100%;
+  background-color: #505050;
+  display: flex;
+  position: fixed;
+}
+
+.video {
+  max-width: 940px;
+  object-fit: fill;
+}
+
+.div-block-13 {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  color: #5f5f5f;
+  background-color: #b4b4b4;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: fixed;
+}
+
+.image-5 {
+  object-fit: contain;
+}
+
+.div-block-14 {
+  max-width: 940px;
+  display: flex;
+}
+
+.heading-8 {
+  color: #000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  line-height: 38px;
+  text-decoration: none;
+}
+
+.div-block-15 {
+  min-width: 940px;
+  color: rgba(77, 77, 77, 0);
+  flex-direction: column;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.div-block-16 {
+  align-self: flex-start;
+}
+
+.link-block-2 {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 991px) {
   .appositebody {
     background-color: #e7e7e6;
@@ -405,6 +465,13 @@
 
   .div-block-11 {
     z-index: 1;
+  }
+
+  .div-block-15 {
+    width: 100%;
+    max-width: 940px;
+    min-width: 0;
+    padding: 40px;
   }
 }
 
@@ -470,6 +537,14 @@
     justify-content: space-between;
     align-items: stretch;
     display: flex;
+  }
+
+  .heading-8 {
+    font-size: 24px;
+  }
+
+  .div-block-15 {
+    padding: 10px;
   }
 }
 
