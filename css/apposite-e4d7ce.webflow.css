@@ -603,6 +603,14 @@
   display: flex;
 }
 
+.image-copy {
+  aspect-ratio: auto;
+  object-fit: cover;
+  padding-top: 20px;
+  display: inline-block;
+  position: static;
+}
+
 @media screen and (max-width: 991px) {
   .appositebody {
     background-color: #e7e7e6;
