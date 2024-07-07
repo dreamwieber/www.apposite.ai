@@ -19,6 +19,22 @@
   display: grid;
 }
 
+.w-embed-youtubevideo {
+  background-image: url('https://d3e54v103j8qbb.cloudfront.net/static/youtube-placeholder.2b05e7d68d.svg');
+  background-position: 50%;
+  background-size: cover;
+  width: 100%;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+}
+
+.w-embed-youtubevideo:empty {
+  min-height: 75px;
+  padding-bottom: 56.25%;
+}
+
 @media screen and (max-width: 991px) {
   .w-layout-blockcontainer {
     max-width: 728px;
@@ -32,11 +48,11 @@
 }
 
 .appositebody {
-  height: 100%;
   cursor: pointer;
   object-fit: fill;
   background-color: #e7e7e6;
   align-items: center;
+  height: 100%;
   padding: 20px;
   display: flex;
   overflow: scroll;
@@ -84,8 +100,8 @@
 }
 
 .paragraph-3 {
-  max-width: 400px;
   color: rgba(0, 0, 0, .8);
+  max-width: 400px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -145,12 +161,12 @@
 }
 
 .appositecontainer {
-  height: 100%;
   flex-direction: row;
   flex: 1;
   justify-content: flex-start;
   align-self: center;
   align-items: flex-start;
+  height: 100%;
   display: flex;
 }
 
@@ -180,12 +196,12 @@
 }
 
 .appositecontainersubpage {
-  height: 100%;
   flex-direction: row;
   flex: 1;
   justify-content: flex-start;
   align-self: flex-start;
   align-items: flex-start;
+  height: 100%;
   margin-bottom: 0;
   display: flex;
 }
@@ -235,13 +251,16 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
+  height: auto;
+  min-height: 400px;
   display: flex;
 }
 
 .image {
-  height: 320px;
   aspect-ratio: auto;
   object-fit: cover;
+  height: 320px;
   padding-top: 20px;
   display: inline-block;
   position: static;
@@ -257,10 +276,10 @@
 }
 
 .heading-6 {
-  max-width: 600px;
   color: #000;
   text-align: center;
   letter-spacing: -1px;
+  max-width: 600px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   font-size: 48px;
   font-weight: 400;
@@ -276,10 +295,10 @@
 }
 
 .div-block-7 {
-  height: 400px;
-  max-height: 480px;
   object-fit: fill;
   flex: 1;
+  height: 400px;
+  max-height: 480px;
   overflow: hidden;
 }
 
@@ -299,9 +318,9 @@
 }
 
 .image-3 {
-  width: 100%;
-  aspect-ratio: 2.39 / 1;
+  aspect-ratio: 2.39;
   object-fit: cover;
+  width: 100%;
   position: static;
 }
 
@@ -314,9 +333,9 @@
 }
 
 .paragraph-4 {
-  max-width: 600px;
   color: #1d1d1d;
   text-align: center;
+  max-width: 600px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   font-weight: 500;
 }
@@ -327,12 +346,12 @@
 }
 
 .div-block-9 {
-  height: 200px;
   background-color: #fff;
   border-radius: 24px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  height: 200px;
   display: flex;
 }
 
@@ -358,9 +377,9 @@
 
 .div-block-11 {
   z-index: 9999;
+  background-color: #252525;
   width: 100%;
   height: 100%;
-  background-color: #252525;
   position: fixed;
   top: 0%;
   bottom: 0%;
@@ -369,38 +388,38 @@
 }
 
 .appositesupport {
-  height: 100%;
   flex-direction: row;
   flex: 1;
   justify-content: flex-start;
   align-self: flex-start;
   align-items: flex-start;
+  height: 100%;
   margin-bottom: 0;
   display: flex;
 }
 
 .div-block-12 {
+  background-color: #505050;
   width: 100%;
   height: 100%;
-  background-color: #505050;
   display: flex;
   position: fixed;
 }
 
 .video {
-  max-width: 940px;
   object-fit: fill;
+  max-width: 940px;
 }
 
 .div-block-13 {
   z-index: 999;
-  width: 100%;
-  height: 100%;
   color: #5f5f5f;
   background-color: #b4b4b4;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   display: flex;
   position: fixed;
 }
@@ -422,10 +441,10 @@
 }
 
 .div-block-15 {
-  min-width: 940px;
   color: rgba(77, 77, 77, 0);
   flex-direction: column;
   justify-content: flex-end;
+  min-width: 940px;
   display: flex;
 }
 
@@ -456,18 +475,18 @@
 }
 
 .div-block-18 {
-  height: 400px;
   background-image: url('../images/vibescapeEmptyMasked2.png');
   background-position: 0 0;
   background-size: cover;
+  height: 400px;
   margin-top: 40px;
   padding-top: 20px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
 }
 
 .grid {
-  min-height: 24%;
   grid-template-rows: 382px auto;
+  min-height: 24%;
 }
 
 .heading-9 {
@@ -478,7 +497,7 @@
 }
 
 .heading-10 {
-  color: #fff;
+  color: #ddd;
   text-align: left;
   margin-top: 0;
   font-size: 16px;
@@ -487,6 +506,10 @@
 
 .image-7 {
   margin-left: 20px;
+}
+
+.div-block-19 {
+  position: relative;
 }
 
 .body-2 {
@@ -499,18 +522,6 @@
                  "."
                  "."
                  / 1fr 1fr 1fr 1fr;
-}
-
-.appositeheading-copy {
-  color: #000;
-  flex-direction: row;
-  margin-top: 0;
-  margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  text-decoration: none;
-  display: flex;
 }
 
 .heading-11 {
@@ -538,19 +549,11 @@
   font-weight: 400;
 }
 
-.paragraph-4-copy {
-  max-width: 600px;
-  color: #1d1d1d;
-  text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
-  font-weight: 500;
-}
-
 .heading-6-copy {
-  max-width: 600px;
   color: #fff;
   text-align: center;
   letter-spacing: -1px;
+  max-width: 600px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   font-size: 48px;
   font-weight: 400;
@@ -558,12 +561,10 @@
 }
 
 .paragraph-4-copy {
-  max-width: 600px;
-  color: #acacac;
-  text-align: center;
-  max-width: 600px;
   color: #999;
   text-align: center;
+  text-align: center;
+  max-width: 600px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   font-weight: 500;
 }
@@ -585,7 +586,6 @@
 }
 
 .link-copy {
-  color: #fff;
   color: #fff;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
   text-decoration: none;
@@ -609,6 +609,58 @@
   padding-top: 20px;
   display: inline-block;
   position: static;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: block;
+  position: relative;
+}
+
+.heading-9-copy {
+  color: #070707;
+  text-align: left;
+  margin-bottom: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-weight: 400;
+}
+
+.heading-10-copy {
+  color: #313131;
+  text-align: left;
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.section {
+  display: block;
+}
+
+.section-2 {
+  width: 100%;
+  height: 100%;
+}
+
+.section-3 {
+  min-height: 200px;
+  margin-top: 100px;
+}
+
+.heading-10-copy-copy {
+  color: #313131;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 220px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.image-8, .section-5 {
+  margin-top: 100px;
 }
 
 @media screen and (max-width: 991px) {
@@ -654,8 +706,8 @@
 
   .div-block-15 {
     width: 100%;
-    max-width: 940px;
     min-width: 0;
+    max-width: 940px;
     padding: 40px;
   }
 
@@ -673,6 +725,12 @@
 
   .div-block-19 {
     margin-bottom: 20px;
+  }
+
+  .heading-10-copy, .heading-10-copy-copy {
+    margin-bottom: 20px;
+    padding-right: 60px;
+    line-height: 18px;
   }
 }
 
@@ -803,12 +861,6 @@
     display: flex;
   }
 
-  .appositeheading-copy {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
-  }
-
   .heading-14 {
     text-align: center;
   }
@@ -822,6 +874,18 @@
     font-size: 14px;
     font-weight: 600;
     line-height: 20px;
+  }
+
+  .heading-9-copy {
+    padding-left: 0;
+  }
+
+  .heading-10-copy, .heading-10-copy-copy {
+    margin-bottom: 20px;
+    padding-left: 0;
+    padding-right: 100px;
+    font-size: 14px;
+    line-height: 18px;
   }
 }
 
@@ -860,6 +924,18 @@
 
 #w-node-d5dbf69b-fb6b-2470-d4aa-f982157a5d7f-5bf49b5b {
   grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#w-node-_3854ced9-3d42-8b86-4f69-08b9a46b5c01-5bf49b5b, #w-node-_4450f104-bb6c-273d-70de-128d987b2a73-5bf49b5b {
+  grid-area: span 1 / span 2 / span 1 / span 2;
+}
+
+#w-node-_4450f104-bb6c-273d-70de-128d987b2a79-5bf49b5b {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#w-node-aed20a80-68a1-cbe3-f647-7bb35722b53a-5bf49b5b {
+  grid-area: span 1 / span 4 / span 1 / span 4;
 }
 
 #w-node-c68fd8dc-f1f5-66a6-865c-b662a9910598-1ae09254 {
@@ -1044,7 +1120,49 @@
   justify-self: center;
 }
 
-#w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+#w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+  grid-area: span 1 / span 4 / span 1 / span 4;
+}
+
+#w-node-c68fd8dc-f1f5-66a6-865c-b662a9910598-d02586a0 {
+  grid-area: 1 / 1 / 2 / 3;
+  align-self: start;
+}
+
+#w-node-_44fbf2c9-fcdd-6834-f84b-ff74be5846b7-d02586a0 {
+  grid-area: Area;
+}
+
+#w-node-_816e610b-845f-1b03-f29c-a21239de661b-d02586a0 {
+  grid-area: 1 / 3 / 2 / 5;
+  align-self: center;
+  justify-self: end;
+}
+
+#w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-d02586a0 {
+  grid-area: span 2 / span 4 / span 2 / span 4;
+  align-self: center;
+  justify-self: center;
+}
+
+#w-node-b862416c-b3c9-ec56-4edf-cb3b9c99bb57-d02586a0 {
+  grid-area: span 1 / span 4 / span 1 / span 4;
+  justify-self: center;
+}
+
+#w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-d02586a0 {
+  grid-area: span 1 / span 4 / span 1 / span 4;
+  align-self: start;
+  justify-self: center;
+}
+
+#w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-d02586a0 {
+  grid-area: span 1 / span 4 / span 1 / span 4;
+  align-self: center;
+  justify-self: center;
+}
+
+#w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-d02586a0, #w-node-_8904c28c-bddb-3ed6-88a6-0ec9ac840bd9-d02586a0, #w-node-deca387f-4d33-5ab1-83f1-7232b1faf720-d02586a0, #w-node-_4cfd2700-6bb7-fc84-f3bd-10d0d8d9df2b-d02586a0, #w-node-_20cf4509-ba44-0a6e-f768-aeb2884abc4c-d02586a0 {
   grid-area: span 1 / span 4 / span 1 / span 4;
 }
 
@@ -1204,7 +1322,44 @@
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 
-  #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+  #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+    grid-column: span 1 / span 1;
+  }
+
+  #w-node-c68fd8dc-f1f5-66a6-865c-b662a9910598-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: start;
+  }
+
+  #w-node-_816e610b-845f-1b03-f29c-a21239de661b-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: start;
+    justify-self: end;
+  }
+
+  #w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: center;
+    justify-self: start;
+  }
+
+  #w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: start;
+    justify-self: start;
+  }
+
+  #w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+    align-self: center;
+    justify-self: start;
+  }
+
+  #w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-d02586a0 {
+    grid-area: span 1 / span 1 / span 1 / span 1;
+  }
+
+  #w-node-_8904c28c-bddb-3ed6-88a6-0ec9ac840bd9-d02586a0, #w-node-deca387f-4d33-5ab1-83f1-7232b1faf720-d02586a0, #w-node-_4cfd2700-6bb7-fc84-f3bd-10d0d8d9df2b-d02586a0, #w-node-_20cf4509-ba44-0a6e-f768-aeb2884abc4c-d02586a0 {
     grid-column: span 1 / span 1;
   }
 }
