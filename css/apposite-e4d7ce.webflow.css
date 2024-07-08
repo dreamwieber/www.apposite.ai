@@ -911,6 +911,10 @@
     line-height: 32px;
   }
 
+  .div-block-20 {
+    padding-left: 0;
+  }
+
   .appositeheading-copy, .appositeheading-copy-copy {
     font-size: 14px;
     font-weight: 600;
@@ -961,6 +965,10 @@
 
   .div-block-19-copy {
     padding-left: 0;
+  }
+
+  .code-embed {
+    min-width: 300px;
   }
 }
 
@@ -1181,6 +1189,10 @@
   justify-self: center;
 }
 
+#w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471 {
+  grid-area: span 1 / span 4 / span 1 / span 4;
+}
+
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e075-dbc56471 {
   grid-area: span 1 / span 4 / span 1 / span 4;
   align-self: start;
@@ -1197,7 +1209,7 @@
   justify-self: center;
 }
 
-#w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+#w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
   grid-area: span 1 / span 4 / span 1 / span 4;
 }
 
@@ -1403,6 +1415,10 @@
     justify-self: start;
   }
 
+  #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471 {
+    grid-column: span 1 / span 1;
+  }
+
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e075-dbc56471 {
     grid-area: span 1 / span 1 / span 1 / span 1;
     align-self: start;
@@ -1419,7 +1435,7 @@
     grid-area: span 1 / span 1 / span 1 / span 1;
   }
 
-  #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
+  #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
     grid-column: span 1 / span 1;
   }
 
