@@ -30,18 +30,6 @@
   position: relative;
 }
 
-.fullscreen-video {
-  display: flex;
-  justify-content: center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  width: 100vw;              /* full width */
-  height: 100vh;             /* full height */
-}
-.fullscreen-video iframe {
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .w-embed-youtubevideo:empty {
   min-height: 75px;
   padding-bottom: 56.25%;
@@ -84,7 +72,7 @@
   flex-direction: row;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 48px;
   font-weight: 500;
   display: flex;
@@ -92,12 +80,12 @@
 
 .paragraph {
   color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .paragraph-2 {
   color: #2c2c2c;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 18px;
@@ -113,15 +101,15 @@
 }
 
 .paragraph-3 {
-  color: rgba(0, 0, 0, .8);
+  color: #000c;
   max-width: 400px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .text-span {
-  color: rgba(255, 5, 209, .8);
+  color: #ff05d1cc;
   background-color: #fff;
   border: 5px solid #fff;
 }
@@ -135,7 +123,7 @@
   border-radius: 24px;
   align-self: center;
   padding: 10px 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 14px;
 }
 
@@ -149,7 +137,7 @@
 
 .link {
   color: #000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
 }
 
@@ -161,14 +149,13 @@
   align-items: baseline;
   padding-right: 40px;
   display: flex;
-  position: -webkit-sticky;
   position: sticky;
   top: auto;
 }
 
 .heading-2 {
   color: #000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 400;
   line-height: 18px;
@@ -197,7 +184,7 @@
 
 .heading-3 {
   color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
 }
 
@@ -225,7 +212,7 @@
   flex-direction: row;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 500;
   text-decoration: none;
@@ -236,7 +223,7 @@
   color: #000;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 600;
 }
@@ -246,7 +233,7 @@
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 48px;
   font-weight: 400;
 }
@@ -257,7 +244,7 @@
 }
 
 .link-block.w--current {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
 }
 
@@ -294,7 +281,7 @@
   text-align: center;
   letter-spacing: -1px;
   max-width: 600px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 48px;
   font-weight: 400;
   line-height: 48px;
@@ -350,13 +337,13 @@
   color: #1d1d1d;
   text-align: center;
   max-width: 600px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 500;
 }
 
 .paragraph-5 {
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .div-block-9 {
@@ -371,14 +358,14 @@
 
 .heading-7 {
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .paragraph-6 {
   text-align: center;
   padding-left: 8px;
   padding-right: 8px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .div-block-10 {
@@ -395,10 +382,7 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 0%;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
+  inset: 0%;
 }
 
 .appositesupport {
@@ -449,13 +433,13 @@
 
 .heading-8 {
   color: #000;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 38px;
   text-decoration: none;
 }
 
 .div-block-15 {
-  color: rgba(77, 77, 77, 0);
+  color: #4d4d4d00;
   flex-direction: column;
   justify-content: flex-end;
   min-width: 940px;
@@ -495,21 +479,17 @@
   height: 400px;
   margin-top: 40px;
   padding-top: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-.div-block-metaballs {
-  background: 
-    linear-gradient(to right,rgba(0,0,0,0), rgba(0,0,0,0.5)), 
-    url('../images/metaballsPreview.jpg') center/cover no-repeat;
-  background-blend-mode: multiply;
-
+.div-block-18b {
+  background-image: url('../images/metaballsPreview.jpg');
   background-position: 0 0;
   background-size: cover;
   height: 400px;
   margin-top: 40px;
   padding-top: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .grid {
@@ -554,26 +534,26 @@
 
 .heading-11 {
   color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 100;
 }
 
 .heading-12 {
   color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 500;
 }
 
 .heading-13 {
   color: #fff;
   text-align: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 300;
 }
 
 .heading-14 {
   color: var(--white);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 400;
 }
 
@@ -582,7 +562,7 @@
   text-align: center;
   letter-spacing: -1px;
   max-width: 600px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 48px;
   font-weight: 400;
   line-height: 48px;
@@ -593,7 +573,7 @@
   text-align: center;
   text-align: center;
   max-width: 600px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 500;
 }
 
@@ -606,7 +586,7 @@
   flex-direction: row;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 500;
   text-decoration: none;
@@ -615,7 +595,7 @@
 
 .link-copy {
   color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   text-decoration: none;
 }
 
@@ -624,7 +604,7 @@
   flex-direction: row;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 500;
   text-decoration: none;
@@ -652,7 +632,7 @@
   color: #070707;
   text-align: left;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
@@ -686,7 +666,7 @@
   max-width: 600px;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px;
@@ -729,7 +709,7 @@
   }
 
   .paragraph-3 {
-    color: rgba(19, 19, 19, .8);
+    color: #131313cc;
   }
 
   .button {
@@ -963,7 +943,7 @@
     margin-bottom: 20px;
     padding-left: 0;
     padding-right: 100px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 18px;
   }
@@ -978,7 +958,7 @@
     margin-bottom: 20px;
     padding-left: 0;
     padding-right: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 18px;
   }
@@ -1019,8 +999,7 @@
 
 #w-node-ef497c57-bd37-ce06-fe4d-31325ef032f6-5bf49b5b {
   grid-area: 1 / 3 / 3 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-_159317a7-7e33-7fce-0d3a-1889979b200b-5bf49b5b {
@@ -1029,11 +1008,23 @@
 
 #w-node-_0ec54ad5-ca9a-f6fe-bac1-9eaf19aeb450-5bf49b5b {
   grid-area: 1 / 2 / 2 / 3;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-d5dbf69b-fb6b-2470-d4aa-f982157a5d7f-5bf49b5b {
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#w-node-_74c51e51-db8d-97c8-89f8-d973464e9bdd-5bf49b5b {
+  grid-area: span 2 / span 4 / span 2 / span 4;
+}
+
+#w-node-_74c51e51-db8d-97c8-89f8-d973464e9bdf-5bf49b5b {
+  grid-area: 1 / 2 / 2 / 3;
+  place-self: center;
+}
+
+#w-node-_74c51e51-db8d-97c8-89f8-d973464e9be2-5bf49b5b {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
@@ -1055,8 +1046,7 @@
 
 #w-node-fbdec27c-525e-2b9c-65d7-2402f25d221a-5bf49b5b {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: start;
-  justify-self: start;
+  place-self: start;
 }
 
 #w-node-c68fd8dc-f1f5-66a6-865c-b662a9910598-1ae09254 {
@@ -1070,14 +1060,12 @@
 
 #w-node-_816e610b-845f-1b03-f29c-a21239de661b-1ae09254 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-1ae09254 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-b862416c-b3c9-ec56-4edf-cb3b9c99bb57-1ae09254 {
@@ -1087,8 +1075,7 @@
 
 #w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-1ae09254 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: start;
-  justify-self: center;
+  place-self: start center;
 }
 
 #w-node-_69ee88d8-7b2c-edb6-018f-fc00fa2879ef-1ae09254 {
@@ -1097,8 +1084,7 @@
 
 #w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-1ae09254 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-1ae09254, #w-node-_8904c28c-bddb-3ed6-88a6-0ec9ac840bd9-1ae09254, #w-node-deca387f-4d33-5ab1-83f1-7232b1faf720-1ae09254, #w-node-_4cfd2700-6bb7-fc84-f3bd-10d0d8d9df2b-1ae09254, #w-node-_20cf4509-ba44-0a6e-f768-aeb2884abc4c-1ae09254 {
@@ -1120,14 +1106,12 @@
 
 #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac890a-ccf1b193 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac890f-ccf1b193 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac8910-ccf1b193 {
@@ -1150,14 +1134,12 @@
 
 #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb0279b-20d875c0 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb027a0-20d875c0 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb027a1-20d875c0 {
@@ -1180,14 +1162,12 @@
 
 #w-node-d09fa9ce-601c-3333-639d-fd0fb773939a-af060416 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-d09fa9ce-601c-3333-639d-fd0fb773939f-af060416 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-d09fa9ce-601c-3333-639d-fd0fb77393a0-af060416 {
@@ -1210,14 +1190,12 @@
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e06b-dbc56471 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e070-dbc56471 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e071-dbc56471 {
@@ -1231,8 +1209,7 @@
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e075-dbc56471 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: start;
-  justify-self: center;
+  place-self: start center;
 }
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e076-dbc56471 {
@@ -1241,8 +1218,7 @@
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e077-dbc56471 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471, #w-node-e7d7320d-d7d5-98fa-4134-9a7858002f7a-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e091-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e097-dbc56471, #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e0a1-dbc56471 {
@@ -1260,14 +1236,12 @@
 
 #w-node-_816e610b-845f-1b03-f29c-a21239de661b-d02586a0 {
   grid-area: 1 / 3 / 2 / 5;
-  align-self: center;
-  justify-self: end;
+  place-self: center end;
 }
 
 #w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-d02586a0 {
   grid-area: span 2 / span 4 / span 2 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-b862416c-b3c9-ec56-4edf-cb3b9c99bb57-d02586a0 {
@@ -1277,14 +1251,12 @@
 
 #w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-d02586a0 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: start;
-  justify-self: center;
+  place-self: start center;
 }
 
 #w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-d02586a0 {
   grid-area: span 1 / span 4 / span 1 / span 4;
-  align-self: center;
-  justify-self: center;
+  place-self: center;
 }
 
 #w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-d02586a0, #w-node-_8904c28c-bddb-3ed6-88a6-0ec9ac840bd9-d02586a0, #w-node-deca387f-4d33-5ab1-83f1-7232b1faf720-d02586a0, #w-node-_4cfd2700-6bb7-fc84-f3bd-10d0d8d9df2b-d02586a0, #w-node-_20cf4509-ba44-0a6e-f768-aeb2884abc4c-d02586a0 {
@@ -1303,39 +1275,47 @@
   }
 
   #w-node-_159317a7-7e33-7fce-0d3a-1889979b200b-5bf49b5b {
-    grid-area: 3 / 1 / 4 / 4;
+    grid-area: 4 / 1 / 4 / 4;
   }
 
   #w-node-_0ec54ad5-ca9a-f6fe-bac1-9eaf19aeb450-5bf49b5b {
     grid-column: 1 / 2;
   }
 
-  #w-node-_3854ced9-3d42-8b86-4f69-08b9a46b5c01-5bf49b5b {
-    grid-area: 4 / 1 / 5 / 4;
+  #w-node-_74c51e51-db8d-97c8-89f8-d973464e9bdd-5bf49b5b {
+    grid-area: 2 / 1 / 4 / 4;
   }
 
-  #w-node-_4450f104-bb6c-273d-70de-128d987b2a73-5bf49b5b {
+  #w-node-_74c51e51-db8d-97c8-89f8-d973464e9bdf-5bf49b5b {
+    grid-column: 1 / 2;
+  }
+
+  #w-node-_3854ced9-3d42-8b86-4f69-08b9a46b5c01-5bf49b5b {
     grid-area: 5 / 1 / 6 / 4;
   }
 
-  #w-node-f9ffa627-afbf-58c9-9b6d-a2777b4bf710-5bf49b5b {
-    grid-area: 7 / 1 / 8 / 4;
-  }
-
-  #w-node-a8cea127-3e72-a9ee-9a3c-19bde7fd3e87-5bf49b5b {
+  #w-node-_4450f104-bb6c-273d-70de-128d987b2a73-5bf49b5b {
     grid-area: 6 / 1 / 7 / 4;
   }
 
-  #w-node-_82c34181-3a06-b071-3ae2-a849d6378f42-5bf49b5b {
+  #w-node-f9ffa627-afbf-58c9-9b6d-a2777b4bf710-5bf49b5b {
     grid-area: 8 / 1 / 9 / 4;
   }
 
-  #w-node-feb95c8b-088c-cea2-3dbe-bef1e6070b4d-5bf49b5b {
+  #w-node-a8cea127-3e72-a9ee-9a3c-19bde7fd3e87-5bf49b5b {
+    grid-area: 7 / 1 / 8 / 4;
+  }
+
+  #w-node-_82c34181-3a06-b071-3ae2-a849d6378f42-5bf49b5b {
     grid-area: 9 / 1 / 10 / 4;
   }
 
-  #w-node-aed20a80-68a1-cbe3-f647-7bb35722b53a-5bf49b5b {
+  #w-node-feb95c8b-088c-cea2-3dbe-bef1e6070b4d-5bf49b5b {
     grid-area: 10 / 1 / 11 / 4;
+  }
+
+  #w-node-aed20a80-68a1-cbe3-f647-7bb35722b53a-5bf49b5b {
+    grid-area: 12 / 1 / 13 / 4;
   }
 
   #w-node-fbdec27c-525e-2b9c-65d7-2402f25d221a-5bf49b5b {
@@ -1349,26 +1329,22 @@
 
   #w-node-_816e610b-845f-1b03-f29c-a21239de661b-1ae09254 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-1ae09254 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-1ae09254 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: start;
+    place-self: start;
   }
 
   #w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-1ae09254 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-1ae09254 {
@@ -1386,14 +1362,12 @@
 
   #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac890a-ccf1b193 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac890f-ccf1b193 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_9a122d90-bff4-fba8-3fe2-88d3b9ac892f-ccf1b193 {
@@ -1407,14 +1381,12 @@
 
   #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb0279b-20d875c0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb027a0-20d875c0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_95dc17e2-9fdd-6796-1db8-8c389eb027a3-20d875c0 {
@@ -1428,14 +1400,12 @@
 
   #w-node-d09fa9ce-601c-3333-639d-fd0fb773939a-af060416 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-d09fa9ce-601c-3333-639d-fd0fb773939f-af060416 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-d09fa9ce-601c-3333-639d-fd0fb77393a2-af060416 {
@@ -1449,14 +1419,12 @@
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e06b-dbc56471 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e070-dbc56471 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e08b-dbc56471 {
@@ -1465,14 +1433,12 @@
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e075-dbc56471 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: start;
+    place-self: start;
   }
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e077-dbc56471 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_47258155-a1f4-3bd3-2d2c-18c16555e083-dbc56471 {
@@ -1490,26 +1456,22 @@
 
   #w-node-_816e610b-845f-1b03-f29c-a21239de661b-d02586a0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: end;
+    place-self: start end;
   }
 
   #w-node-a58fa39e-fa48-d7fd-4044-4c661c554ed4-d02586a0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_412377cc-a32d-afea-4c75-ae9f783e5a9a-d02586a0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: start;
-    justify-self: start;
+    place-self: start;
   }
 
   #w-node-ea712b67-cdf8-476c-cd8d-6db31c24fefd-d02586a0 {
     grid-area: span 1 / span 1 / span 1 / span 1;
-    align-self: center;
-    justify-self: start;
+    place-self: center start;
   }
 
   #w-node-_38faacc1-a6b4-ad45-149b-c92c8b62b760-d02586a0 {
