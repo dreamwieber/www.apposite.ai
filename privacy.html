@@ -1,46 +1,256 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Mon Jul 08 2024 01:20:31 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="658c6abf383d9bd0af060416" data-wf-site="6589d220e0c14e285bf49b51">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>privacy</title>
-  <meta content="privacy" property="og:title">
-  <meta content="privacy" property="twitter:title">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/apposite-e4d7ce.webflow.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"]  }});</script>
-  <script src="https://use.typekit.net/kpr1xol.js" type="text/javascript"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Apposite</title>
+  <meta name="description" content="Privacy policy for Apposite apps">
+  <meta property="og:title" content="Privacy Policy - Apposite">
+  <meta property="og:type" content="website">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.png" rel="apple-touch-icon">
+  <link href="images/favicon.png" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #111110;
+      --color-bg-elevated: #1a1918;
+      --color-bg-card: #1f1e1c;
+      --color-text: #f2efe8;
+      --color-text-muted: #9d978c;
+      --color-text-subtle: #5c584f;
+      --color-accent-warm: #e8673c;
+      --color-border: rgba(242, 239, 232, 0.06);
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-heading: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(17, 17, 16, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 10rem 3rem 4rem;
+      text-align: center;
+      background: linear-gradient(to bottom, var(--color-bg) 0%, var(--color-bg-elevated) 100%);
+    }
+
+    .page-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .page-header .subtitle {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Content */
+    .content {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 4rem 3rem;
+    }
+
+    .content h2 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .content a {
+      color: var(--color-accent-warm);
+      text-decoration: none;
+    }
+
+    .content a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--color-border);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      font-size: 0.875rem;
+      color: var(--color-text-subtle);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .page-header {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .content {
+        padding: 3rem 1.5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="w-layout-blockcontainer appositesupport w-container">
-    <div class="w-layout-grid appositegridsubpage">
-      <div id="w-node-d09fa9ce-601c-3333-639d-fd0fb7739396-af060416">
-        <a id="w-node-d09fa9ce-601c-3333-639d-fd0fb7739397-af060416" href="index.html" class="link-block w-inline-block">
-          <h1 id="w-node-d09fa9ce-601c-3333-639d-fd0fb7739398-af060416" class="appositeheading">Apposite </h1>
-        </a>
-      </div>
-      <div id="w-node-d09fa9ce-601c-3333-639d-fd0fb773939a-af060416" class="div-block-2">
-        <a href="support.html" class="link">Support</a>
-        <a href="about.html" class="link">About</a>
-      </div>
-      <div id="w-node-d09fa9ce-601c-3333-639d-fd0fb773939f-af060416" class="div-block-5">
-        <h1 id="w-node-d09fa9ce-601c-3333-639d-fd0fb77393a0-af060416" class="heading-4">App Privacy Policy</h1>
-      </div>
-      <div id="w-node-d09fa9ce-601c-3333-639d-fd0fb77393a2-af060416" class="div-block-8">
-        <p class="paragraph-4">SageBrush / Apposite LLC (&quot;we&quot;) do not collect any personal information, nor do we information specific to your artwork such as prompts or sketches beyond the time necessary to process your generated imagery, or to the extent required for basic functionality like authentication.<br><br>We also do not share your information with any 3rd parties, except to the extent necessary for basic app functionality like authentication. <br><br>Any and all personally identifiable information is anonymized wherever possible. <br><br> **Authentication:** <br>To manage your account effectively, we may collect information necessary for authentication and account access. <br><br>**Data Usage:** <br><br>We collect data essential for the operation of the App and improving user experience. We respect your privacy and handle all personal information in accordance with our Privacy Policy. This may include email address, display name, phone number if using 2-factor authentication. The app generates and stores a unique identifier for user authentication purposes.</p>
-      </div>
+  <nav>
+    <a href="index.html" class="logo">Apposite</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#studio">Studio</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="page-header">
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">How we handle your data</p>
+    </header>
+
+    <article class="content">
+      <h2>Overview</h2>
+      <p>SageBrush / Apposite LLC ("we") do not collect any personal information, nor do we retain information specific to your artwork such as prompts or sketches beyond the time necessary to process your generated imagery, or to the extent required for basic functionality like authentication.</p>
+
+      <p>We also do not share your information with any 3rd parties, except to the extent necessary for basic app functionality like authentication.</p>
+
+      <p>Any and all personally identifiable information is anonymized wherever possible.</p>
+
+      <h2>Authentication</h2>
+      <p>To manage your account effectively, we may collect information necessary for authentication and account access.</p>
+
+      <h2>Data Usage</h2>
+      <p>We collect data essential for the operation of the App and improving user experience. We respect your privacy and handle all personal information in accordance with this Privacy Policy.</p>
+
+      <p>This may include email address, display name, and phone number if using 2-factor authentication. The app generates and stores a unique identifier for user authentication purposes.</p>
+
+      <h2>Questions?</h2>
+      <p>If you have any questions about this privacy policy, please contact us at <a href="mailto:support@apposite.ai">support@apposite.ai</a></p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      &copy; 2025 Apposite
     </div>
-  </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6589d220e0c14e285bf49b51" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="js/webflow.js" type="text/javascript"></script>
+    <div class="footer-links">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+    </div>
+  </footer>
 </body>
 </html>

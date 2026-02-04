@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polychord: iPad App for Music Creation and Performance</title>
+  <meta name="description" content="Whether you're an accomplished musician or an absolute beginner, you're going to love Polychord. Drums, bass, chords, and accompaniment all wrapped into one.">
+  <meta property="og:title" content="Polychord - Music Creation for iPad">
+  <meta property="og:description" content="Performable. Recordable. The songwriting instrument used by musicians all over the world.">
+  <meta property="og:type" content="website">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="images/favicon.png" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Darker+Grotesque:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #0f0f0e;
+      --color-bg-elevated: #171715;
+      --color-text: #f5f3ef;
+      --color-text-muted: #a09a8f;
+      --color-text-subtle: #5c584f;
+      --color-accent: #c4492f;
+      --color-border: rgba(245, 243, 239, 0.08);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Darker Grotesque', -apple-system, sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    ::selection {
+      background: var(--color-accent);
+      color: white;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: transparent;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(15, 15, 14, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .logo {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-text);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+
+    .nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 3rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      will-change: opacity, transform;
+    }
+
+    .hero-bg img,
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 15, 14, 0.3) 0%,
+        rgba(15, 15, 14, 0.1) 30%,
+        rgba(15, 15, 14, 0.4) 60%,
+        rgba(15, 15, 14, 0.95) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--color-text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: clamp(3.5rem, 12vw, 8rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s var(--ease-out-expo);
+      position: relative;
+    }
+
+    .btn-outline {
+      color: var(--color-text);
+      padding: 1rem 2rem;
+      border: 1px solid var(--color-border);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-text);
+      color: var(--color-bg);
+      border-color: var(--color-text);
+    }
+
+    .app-store-badge {
+      height: 44px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.9;
+    }
+
+    .app-store-badge:hover {
+      transform: translateY(-2px);
+      opacity: 1;
+    }
+
+    /* Content Sections */
+    .content-section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 3rem;
+      background: var(--color-bg);
+    }
+
+    .content-section-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .content-section h2 {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 500;
+      line-height: 1.25;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .content-section p {
+      font-family: var(--font-sans);
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .content-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Feature list */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      text-align: left;
+    }
+
+    .feature h3 {
+      font-family: var(--font-sans);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+      line-height: 1.6;
+    }
+
+    /* Quote section */
+    .quote-section {
+      position: relative;
+      z-index: 1;
+      background: var(--color-bg-elevated);
+      padding: 6rem 3rem;
+    }
+
+    .quotes-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+
+    .quote {
+      text-align: center;
+    }
+
+    .quote blockquote {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .quote cite {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-style: normal;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      position: relative;
+      z-index: 1;
+      padding: 10rem 3rem;
+      text-align: center;
+      background: var(--color-bg-elevated);
+    }
+
+    .cta-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+      margin-bottom: 2rem;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-section p {
+      font-family: var(--font-sans);
+      color: var(--color-text-muted);
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-icon {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
+      border-radius: 26.5%;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta-icon:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 4rem;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--color-text-subtle);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .footer-links a {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-text);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1.5rem 2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 6rem 1.5rem;
+        min-height: 85vh;
+      }
+
+      .content-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .quote-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .quotes-grid {
+        gap: 2.5rem;
+      }
+
+      .cta-section {
+        padding: 6rem 1.5rem;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Apposite</a>
+    <ul class="nav-links">
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="immersive.html">Immersive</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-bg">
+        <video autoplay muted loop playsinline poster="media/polychord-background.jpg">
+          <source src="media/polychord-background.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero-content">
+        <p class="hero-label">Award-Winning · Apple Staff Favorite</p>
+        <h1>Polychord</h1>
+        <p class="hero-tagline">Songwriting at your fingertips.</p>
+        <div class="hero-cta">
+          <a href="http://polychordapp.com" target="_blank" class="btn btn-outline">Visit polychordapp.com</a>
+          <a href="https://apps.apple.com/us/app/polychord/id402625491" target="_blank">
+            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="content-section-inner">
+        <h2>The musical instrument for everyone</h2>
+        <p>Released as one of the original top-ten music apps for iPad over fifteen years ago, Polychord has been used by musicians all around the world. Whether you're a complete novice and just want to explore chords, or a songwriting expert looking for a way to break out of a groove — Polychord has something for everyone.</p>
+        <p>Play chords from a wide variety of palettes. Strum and solo with ease — everything is in key. Turn on auto-accompany, and a whole band is at your command. Want to dive deeper? Extensive MIDI options let you control your favorite DAW like GarageBand or Logic.</p>
+
+        <div class="features">
+          <div class="feature">
+            <h3>Chord Palettes</h3>
+            <p>Major, minor, jazz, cinematic, rock — explore new musical territory. The chord circles set the tone for the rest of the app, with the strum keys and auto-accompaniment following in harmony.</p>
+          </div>
+          <div class="feature">
+            <h3>Auto-Accompany</h3>
+            <p>A whole band at your command with customizable drum synth, a variety of rhythm and bass lines, and an extensive arpeggiator that can play the notes of the chord or a whole catalogue of scales and time signatures.</p>
+          </div>
+          <div class="feature">
+            <h3>MIDI Control</h3>
+            <p>Use Polychord to play virtual instruments in your favorite DAW. Turn solos on the strum keys into a grand piano in GarageBand. Split chords into multiple channels to control a whole quartet in Logic Pro.</p>
+          </div>
+          <div class="feature">
+            <h3>Projects & Export</h3>
+            <p>Record, organize, and share your songs via AirDrop or Files</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="quotes-grid">
+        <div class="quote">
+          <blockquote>"An inspiring way to create music."</blockquote>
+          <cite>— Engadget</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"A quick and easy way to make music."</blockquote>
+          <cite>— Wired</cite>
+        </div>
+        <div class="quote">
+          <blockquote>"The songwriting instrument used by musicians all over the world."</blockquote>
+          <cite>— Apple</cite>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <p class="cta-label">Available Now</p>
+      <a href="https://apps.apple.com/us/app/polychord/id402625491" target="_blank" class="cta-icon">
+        <img src="images/polychord-icon.png" alt="Polychord">
+      </a>
+      <h2>Rediscover the joy of play</h2>
+      <p>Polychord for iPad. Now better than ever.</p>
+      <div class="cta-buttons">
+        <a href="https://apps.apple.com/us/app/polychord/id402625491" target="_blank">
+          <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      &copy; 2025 Apposite
+    </div>
+    <div class="footer-links">
+      <a href="https://youtube.com/@dreamwieber">YouTube</a>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    const heroBg = document.querySelector('.hero-bg');
+    const heroContent = document.querySelector('.hero-content');
+    const heroHeight = window.innerHeight;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      // Nav background
+      if (scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
+      // Hero video fade and parallax
+      if (heroBg && scrollY < heroHeight) {
+        const progress = scrollY / heroHeight;
+        // Fade out video
+        heroBg.style.opacity = 1 - progress * 1.2;
+        // Subtle parallax - video stays mostly fixed, slight scale for depth
+        heroBg.style.transform = `scale(${1 + progress * 0.05})`;
+        // Fade out hero content faster
+        if (heroContent) {
+          heroContent.style.opacity = 1 - progress * 2;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
