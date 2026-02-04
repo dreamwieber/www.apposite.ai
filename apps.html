@@ -331,6 +331,56 @@
       border-color: var(--color-text);
     }
 
+    /* Subscribe */
+    .subscribe-form {
+      display: flex;
+      max-width: 400px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--color-border);
+      transition: border-color 0.3s ease;
+    }
+
+    .subscribe-form:focus-within {
+      border-color: var(--color-text);
+    }
+
+    .subscribe-input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text);
+      padding: 0.75rem 0;
+      letter-spacing: 0.02em;
+    }
+
+    .subscribe-input::placeholder {
+      color: var(--color-text-subtle);
+    }
+
+    .subscribe-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--color-text-subtle);
+      padding: 0.75rem 0 0.75rem 1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .subscribe-btn:hover {
+      color: var(--color-text);
+      transform: translateX(2px);
+    }
+
+    .subscribe-btn svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
     /* Footer */
     footer {
       padding: 2rem 4rem;
@@ -485,9 +535,18 @@
     </section>
 
     <section class="cta-section">
-      <p class="cta-label">More Coming</p>
-      <p class="cta-text">Immersive films, Vibescape for iOS, a major Polychord update, and maybe a MYST-like game are all in the works.</p>
-      <a href="https://apps.apple.com/us/developer/apposite/id402628138" target="_blank" class="btn">View All on App Store</a>
+      <p class="cta-label">More to Come</p>
+      <p class="cta-text">Want to be the first to know about our new apps, projects, video series? Subscribe for updates.</p>
+      <form class="subscribe-form" action="https://apposite.us21.list-manage.com/subscribe/post?u=4d77e4b606f49ab33e39b6777&amp;id=a4e7eb56d9&amp;f_id=00e1e7e6f0" method="post" target="_blank">
+        <input type="hidden" name="tags" value="2999788">
+        <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_4d77e4b606f49ab33e39b6777_a4e7eb56d9" tabindex="-1" value=""></div>
+        <input type="email" name="EMAIL" class="subscribe-input" placeholder="Your email" required>
+        <button type="submit" class="subscribe-btn" aria-label="Subscribe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </button>
+      </form>
     </section>
   </main>
 
