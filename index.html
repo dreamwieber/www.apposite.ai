@@ -2505,58 +2505,104 @@
         resetIdleTimer();
       });
 
-      // Touch support
+      // Touch support with scroll detection
+      let touchStartPos = { x: 0, y: 0 };
+      let touchDecided = false;
+      let isInteracting = false;
+
       section.addEventListener('touchstart', (e) => {
-        e.preventDefault();
         const touch = e.touches[0];
         sectionRect = section.getBoundingClientRect();
+        touchStartPos.x = touch.clientX;
+        touchStartPos.y = touch.clientY;
         mouse.x = touch.clientX - sectionRect.left;
         mouse.y = touch.clientY - sectionRect.top;
         mouse.prevX = mouse.x;
         mouse.prevY = mouse.y;
         mouseDownPos.x = mouse.x;
         mouseDownPos.y = mouse.y;
-        isDragging = true;
+        touchDecided = false;
+        isInteracting = false;
         didDrag = false;
-        hasClicked = true;
-        if (!isPlaying) {
-          isPlaying = true;
-          section.classList.add('playing');
-        }
-        resetIdleTimer();
-        startAnimation();
-      }, { passive: false });
+      }, { passive: true });
 
       section.addEventListener('touchmove', (e) => {
-        e.preventDefault();
         const touch = e.touches[0];
-        sectionRect = section.getBoundingClientRect();
-        mouse.prevX = mouse.x;
-        mouse.prevY = mouse.y;
-        mouse.x = touch.clientX - sectionRect.left;
-        mouse.y = touch.clientY - sectionRect.top;
+        const dx = touch.clientX - touchStartPos.x;
+        const dy = touch.clientY - touchStartPos.y;
 
-        if (!didDrag) {
-          const dx = mouse.x - mouseDownPos.x;
-          const dy = mouse.y - mouseDownPos.y;
-          if (Math.sqrt(dx * dx + dy * dy) > 10) {
-            didDrag = true;
+        // On first significant movement, decide: scroll or interact?
+        if (!touchDecided && (Math.abs(dx) > 10 || Math.abs(dy) > 10)) {
+          touchDecided = true;
+          // If movement is mostly vertical, let the page scroll
+          // If mostly horizontal or diagonal, treat as interaction
+          isInteracting = Math.abs(dx) > Math.abs(dy) * 0.5;
+
+          if (isInteracting) {
+            isDragging = true;
+            hasClicked = true;
+            if (!isPlaying) {
+              isPlaying = true;
+              section.classList.add('playing');
+            }
           }
         }
 
-        resetIdleTimer();
-        startAnimation();
+        if (isInteracting) {
+          e.preventDefault();
+          sectionRect = section.getBoundingClientRect();
+          mouse.prevX = mouse.x;
+          mouse.prevY = mouse.y;
+          mouse.x = touch.clientX - sectionRect.left;
+          mouse.y = touch.clientY - sectionRect.top;
+          didDrag = true;
+          resetIdleTimer();
+          startAnimation();
+        }
       }, { passive: false });
 
       section.addEventListener('touchend', (e) => {
-        if (!didDrag) {
+        // Tap (no significant movement) triggers ripple
+        if (!touchDecided) {
+          hasClicked = true;
+          if (!isPlaying) {
+            isPlaying = true;
+            section.classList.add('playing');
+          }
+          addRipple(mouse.x, mouse.y);
+          resetIdleTimer();
+          startAnimation();
+        } else if (isInteracting && !didDrag) {
           addRipple(mouse.x, mouse.y);
         }
         isDragging = false;
+        isInteracting = false;
       });
 
       window.addEventListener('resize', resize);
       resize();
+
+      // Flutter animation when section comes into view
+      let hasFluttered = false;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasFluttered) {
+            hasFluttered = true;
+            // Add random energy to scattered dots
+            const flutterCount = Math.floor(cols * rows * 0.15);
+            for (let f = 0; f < flutterCount; f++) {
+              const i = Math.floor(Math.random() * cols);
+              const j = Math.floor(Math.random() * rows);
+              if (grid[i] && grid[i][j]) {
+                grid[i][j].energy = 0.3 + Math.random() * 0.4;
+                grid[i][j].velocity = (Math.random() - 0.5) * 0.1;
+              }
+            }
+            startAnimation();
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(section);
     })();
   </script>
 
