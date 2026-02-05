@@ -163,6 +163,37 @@
       width: 100%;
     }
 
+    /* Mobile Menu */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 1.5px;
+      background: var(--color-text);
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
+    }
+
     /* Hero */
     .hero {
       min-height: 100vh;
@@ -1067,8 +1098,34 @@
         padding: 1.5rem 2rem;
       }
 
+      .nav-toggle {
+        display: flex;
+      }
+
       .nav-links {
-        gap: 2rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+        color: var(--color-text);
       }
 
       .work-header {
@@ -1112,6 +1169,11 @@
 
   <nav>
     <a href="#" class="logo">Apposite</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="apps.html">Apps</a></li>
       <li><a href="immersive.html">Immersive</a></li>
@@ -2443,9 +2505,78 @@
         resetIdleTimer();
       });
 
+      // Touch support
+      section.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        sectionRect = section.getBoundingClientRect();
+        mouse.x = touch.clientX - sectionRect.left;
+        mouse.y = touch.clientY - sectionRect.top;
+        mouse.prevX = mouse.x;
+        mouse.prevY = mouse.y;
+        mouseDownPos.x = mouse.x;
+        mouseDownPos.y = mouse.y;
+        isDragging = true;
+        didDrag = false;
+        hasClicked = true;
+        if (!isPlaying) {
+          isPlaying = true;
+          section.classList.add('playing');
+        }
+        resetIdleTimer();
+        startAnimation();
+      }, { passive: false });
+
+      section.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        const touch = e.touches[0];
+        sectionRect = section.getBoundingClientRect();
+        mouse.prevX = mouse.x;
+        mouse.prevY = mouse.y;
+        mouse.x = touch.clientX - sectionRect.left;
+        mouse.y = touch.clientY - sectionRect.top;
+
+        if (!didDrag) {
+          const dx = mouse.x - mouseDownPos.x;
+          const dy = mouse.y - mouseDownPos.y;
+          if (Math.sqrt(dx * dx + dy * dy) > 10) {
+            didDrag = true;
+          }
+        }
+
+        resetIdleTimer();
+        startAnimation();
+      }, { passive: false });
+
+      section.addEventListener('touchend', (e) => {
+        if (!didDrag) {
+          addRipple(mouse.x, mouse.y);
+        }
+        isDragging = false;
+      });
+
       window.addEventListener('resize', resize);
       resize();
     })();
+  </script>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
   </script>
 </body>
 </html>
