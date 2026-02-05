@@ -120,6 +120,37 @@
       width: 100%;
     }
 
+    /* Mobile Menu */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 1.5px;
+      background: var(--color-text);
+      transition: all 0.3s ease;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -5px);
+    }
+
     /* Hero */
     .hero {
       position: relative;
@@ -447,8 +478,34 @@
         padding: 1.5rem 2rem;
       }
 
+      .nav-toggle {
+        display: flex;
+      }
+
       .nav-links {
-        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links a {
+        font-size: 1rem;
+        color: var(--color-text);
       }
 
       .hero {
@@ -489,6 +546,11 @@
 <body>
   <nav>
     <a href="index.html" class="logo">Apposite</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="apps.html">Apps</a></li>
       <li><a href="immersive.html">Immersive</a></li>
@@ -614,6 +676,20 @@
           heroContent.style.opacity = 1 - progress * 2;
         }
       }
+    });
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
     });
   </script>
 </body>
