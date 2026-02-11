@@ -334,7 +334,7 @@
       position: relative;
       z-index: 1;
       background: var(--color-bg-elevated);
-      padding: 6rem 3rem;
+      padding: 4rem 3rem;
     }
 
     .quotes-grid {
@@ -366,6 +366,29 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--color-text-subtle);
+    }
+
+    .accolade {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .accolade-text {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+    }
+
+    .accolade-laurel {
+      width: 60px;
+      height: auto;
+      opacity: 0.5;
     }
 
     /* CTA Section */
@@ -612,14 +635,10 @@
           <blockquote>"An inspiring way to create music."</blockquote>
           <cite>— Engadget</cite>
         </div>
-        <div class="quote">
-          <blockquote>"A quick and easy way to make music."</blockquote>
-          <cite>— Wired</cite>
-        </div>
-        <div class="quote">
-          <blockquote>"The songwriting instrument used by musicians all over the world."</blockquote>
-          <cite>— Apple</cite>
-        </div>
+      </div>
+      <div class="accolade">
+        <p class="accolade-text">Apple Staff Favorite</p>
+        <img src="images/laurel.png" alt="" class="accolade-laurel">
       </div>
     </section>
 
