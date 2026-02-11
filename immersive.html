@@ -203,8 +203,6 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      opacity: 0;
-      animation: slideUp 1s var(--ease-out-expo) 0.5s forwards;
       max-width: 800px;
     }
 
@@ -216,6 +214,8 @@
       letter-spacing: 0.25em;
       color: var(--color-text-muted);
       margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 1.8s var(--ease-out-expo) 0.3s forwards;
     }
 
     .hero h1 {
@@ -225,6 +225,8 @@
       line-height: 0.95;
       letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 4s var(--ease-out-expo) 0.6s forwards;
     }
 
     .hero-subtitle {
@@ -236,6 +238,134 @@
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 2.2s var(--ease-out-expo) 0.9s forwards;
+    }
+
+    .hero .scroll-cue {
+      opacity: 0;
+      animation: fadeIn 2s var(--ease-out-expo) 1.2s forwards;
+    }
+
+    .scroll-cue {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--color-text-muted);
+      margin-top: 3rem;
+      transition: color 0.3s ease;
+    }
+
+    .scroll-cue:hover {
+      color: var(--color-text);
+    }
+
+    .scroll-cue svg {
+      width: 20px;
+      height: 20px;
+      animation: bobDown 2s ease-in-out infinite;
+    }
+
+    @keyframes bobDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    .birch-cue {
+      margin-top: 1.5rem;
+      justify-content: flex-start;
+      pointer-events: auto;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .birch-cue.visible {
+      opacity: 0.7;
+    }
+
+    /* Birch Grove Section */
+    .birch-section {
+      position: relative;
+      background: var(--color-bg);
+      padding: 17.5rem 0;
+      overflow: hidden;
+    }
+
+    .birch-images {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .birch-content {
+      position: absolute;
+      bottom: 33%;
+      left: 5%;
+      z-index: 4;
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .birch-images img {
+      will-change: transform;
+    }
+
+    .birch-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-weight: 300;
+      color: var(--color-text);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .birch-subtitle {
+      font-family: var(--font-sans);
+      font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.7;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      max-width: 380px;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .birch-title.visible {
+      opacity: 1;
+    }
+
+    .birch-subtitle.visible {
+      opacity: 0.85;
+    }
+
+    .birch-section img {
+      width: 100%;
+      display: block;
+    }
+
+    .birch-section .birch-wireframe {
+      position: relative;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1s ease;
+      /* Fade out on left, solid on right */
+      -webkit-mask-image: linear-gradient(to right, transparent 45%, black 65%, black 100%);
+      mask-image: linear-gradient(to right, transparent 45%, black 65%, black 100%);
+    }
+
+    .birch-section .birch-realtime {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 1.8s ease;
+      /* Solid on left, fade out on right */
+      -webkit-mask-image: linear-gradient(to right, black 0%, black 45%, transparent 65%);
+      mask-image: linear-gradient(to right, black 0%, black 45%, transparent 65%);
     }
 
     /* Video Sections */
@@ -554,19 +684,40 @@
       <div class="hero-content">
         <p class="hero-label">Apple Vision Pro</p>
         <h1>Immersive</h1>
-        <p class="hero-subtitle">We're pioneering the art of spatial environments—creating breathtaking experiences for Apple Vision Pro that rival Apple's own productions.</p>
+        <p class="hero-subtitle">We're pioneering the art of spatial environments — creating experiences that have been compared to Apple's own productions.</p>
+        <a href="#birch" class="scroll-cue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
       </div>
     </section>
 
-    <section class="video-section">
+    <section id="birch" class="birch-section">
+      <div class="birch-images">
+        <img src="images/birch-grove-wireframe.jpg" alt="Birch grove wireframe" class="birch-wireframe">
+        <img src="images/birch-grove-realtime.jpg" alt="Birch grove realtime render" class="birch-realtime">
+      </div>
+      <div class="birch-content">
+        <h2 class="birch-title">We build worlds</h2>
+        <p class="birch-subtitle">Immersive environments are more than just a backdrop. They're a way to transport people — to bring them into the story.</p>
+        <a href="#process" class="scroll-cue birch-cue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="process" class="video-section">
       <div class="video-section-bg">
         <!-- Future: replace with looping video -->
-        <img src="images/vibescape2.jpeg" alt="Vibescape environment">
+        <img src="images/void_scene-2.png" alt="Vibescape environment">
       </div>
       <div class="video-section-content">
         <p class="video-section-label">Featured Work</p>
         <h2 class="video-section-title">Vibescape</h2>
-        <p class="video-section-desc">Immersive environments that have moved people to tears. Featured by Apple. See how we crafted breathtaking spatial experiences from early concepts to App Store feature.</p>
+        <p class="video-section-desc">Immersive experiences that transport you — from the forests of the Pacific Northwest to introspective, abstract spaces. Featured by Apple. Watch how these worlds get made.</p>
         <div class="btn-group">
           <a href="vibescape.html" class="btn">
             Explore the App
@@ -584,7 +735,7 @@
     <section class="video-section">
       <div class="video-section-bg">
         <!-- Future: replace with looping video -->
-        <img src="images/void_scene-2.png" alt="Ice Moon environment">
+        <img src="images/ice-moon.jpg" alt="Ice Moon environment">
       </div>
       <div class="video-section-content">
         <p class="video-section-label">YouTube Series</p>
@@ -602,7 +753,6 @@
     <section class="intersection-section">
       <div class="intersection-content">
         <p class="intersection-quote">Immersive sits at the intersection of everything we love—<em>procedural graphics, 3D and Houdini, sound design, filmmaking, nature, and storytelling.</em></p>
-        <p class="intersection-tagline">It's not one skill. It's all of them, working together.</p>
       </div>
     </section>
 
@@ -648,6 +798,82 @@
         navLinks.classList.remove('active');
       });
     });
+
+    // Parallax and birch grove effects
+    const heroBg = document.querySelector('.hero-bg img');
+    const birchSection = document.querySelector('.birch-section');
+    const birchImages = document.querySelector('.birch-images');
+    const birchWireframe = document.querySelector('.birch-wireframe');
+    const birchRealtime = document.querySelector('.birch-realtime');
+    const birchTitle = document.querySelector('.birch-title');
+    const birchSubtitle = document.querySelector('.birch-subtitle');
+    const birchContent = document.querySelector('.birch-content');
+    const birchCue = document.querySelector('.birch-cue');
+
+    function updateParallax() {
+      const scrollY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+
+      // Hero parallax - image moves slower than scroll
+      if (heroBg) {
+        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+      }
+
+      // Birch section parallax (progress-based, matching homepage technique)
+      if (birchSection && birchImages) {
+        const rect = birchSection.getBoundingClientRect();
+        const inView = rect.top < viewportHeight && rect.bottom > 0;
+
+        if (inView) {
+          const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+
+          const wireframeOffset = (progress - 0.5) * -160;
+          const realtimeOffset = (progress - 0.5) * -120;
+          const textOffset = realtimeOffset * 2;
+
+          if (birchWireframe) birchWireframe.style.transform = `translateY(${wireframeOffset}px)`;
+          if (birchRealtime) birchRealtime.style.transform = `translateY(${realtimeOffset}px)`;
+          if (birchContent) birchContent.style.transform = `translateY(${textOffset}px)`;
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+
+    // Birch grove fade triggers
+    if (birchSection && birchWireframe && birchRealtime) {
+      // Wireframe fades in right away
+      const wireframeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            birchWireframe.style.opacity = '1';
+          } else {
+            birchWireframe.style.opacity = '0';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      // Realtime fades in a bit later, then text staggers in
+      const realtimeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            birchRealtime.style.opacity = '1';
+            setTimeout(() => birchTitle && birchTitle.classList.add('visible'), 600);
+            setTimeout(() => birchSubtitle && birchSubtitle.classList.add('visible'), 1000);
+            setTimeout(() => birchCue && birchCue.classList.add('visible'), 1400);
+          } else {
+            birchRealtime.style.opacity = '0';
+            birchTitle && birchTitle.classList.remove('visible');
+            birchSubtitle && birchSubtitle.classList.remove('visible');
+            birchCue && birchCue.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.55 });
+
+      wireframeObserver.observe(birchImages);
+      realtimeObserver.observe(birchImages);
+    }
   </script>
 </body>
 </html>
