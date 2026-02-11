@@ -1227,7 +1227,7 @@
                   <span class="project-tag">visionOS</span>
                 </div>
                 <h3 class="project-name">Vibescape</h3>
-                <p class="project-desc">Immersive environments for Vision Pro that have been compared to Apple's own multi-million dollar productions.</p>
+                <p class="project-desc">Immersive experiences for Vision Pro that transport you. Featured by Apple.</p>
               </div>
               <div class="project-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1587,8 +1587,22 @@
     let grabBaseOffset = { x: 0, y: 0 };
 
     const NUM_BALLS = 5;
-    const ballOffsets = Array(NUM_BALLS).fill(null).map(() => ({ x: 0, y: 0 }));
-    const ballVelocities = Array(NUM_BALLS).fill(null).map(() => ({ x: 0, y: 0 }));
+    // Start scattered in varied directions, spring physics will settle them to the right
+    const initialScatter = [
+      { x: -2.5, y: 1.2 },
+      { x: 1.4, y: -1.8 },
+      { x: -3.0, y: -0.8 },
+      { x: -0.5, y: -2.5 },
+      { x: -1.8, y: -1.4 }
+    ];
+    const ballOffsets = initialScatter.map(s => ({ x: s.x, y: s.y }));
+    const ballVelocities = [
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+      { x: -0.015, y: 0.02 },
+      { x: 0, y: 0 }
+    ];
 
     function getBallPositions(time) {
       const t = time * 0.25;

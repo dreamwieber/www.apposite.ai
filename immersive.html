@@ -635,6 +635,14 @@
         padding: 6rem 1.5rem;
       }
 
+      .birch-section {
+        padding: 12rem 0;
+      }
+
+      .birch-subtitle {
+        max-width: 280px;
+      }
+
       .video-section {
         min-height: 80vh;
       }
@@ -800,6 +808,7 @@
     });
 
     // Parallax and birch grove effects
+    const heroSection = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg img');
     const birchSection = document.querySelector('.birch-section');
     const birchImages = document.querySelector('.birch-images');
@@ -819,6 +828,17 @@
         heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
       }
 
+      // Fade out hero as user scrolls down
+      if (heroSection) {
+        const heroProgress = scrollY / viewportHeight;
+        if (heroProgress > 0.3) {
+          const fadeOut = Math.max(0, 1 - (heroProgress - 0.3) / 0.4);
+          heroSection.style.opacity = fadeOut;
+        } else {
+          heroSection.style.opacity = 1;
+        }
+      }
+
       // Birch section parallax (progress-based, matching homepage technique)
       if (birchSection && birchImages) {
         const rect = birchSection.getBoundingClientRect();
@@ -834,6 +854,14 @@
           if (birchWireframe) birchWireframe.style.transform = `translateY(${wireframeOffset}px)`;
           if (birchRealtime) birchRealtime.style.transform = `translateY(${realtimeOffset}px)`;
           if (birchContent) birchContent.style.transform = `translateY(${textOffset}px)`;
+
+          // Fade out entire section as it scrolls past
+          if (progress > 0.55) {
+            const fadeOut = Math.max(0, 1 - (progress - 0.55) / 0.15);
+            birchSection.style.opacity = fadeOut;
+          } else {
+            birchSection.style.opacity = 1;
+          }
         }
       }
     }
