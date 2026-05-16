@@ -213,6 +213,12 @@
       max-width: 600px;
     }
 
+    /* Re-enable interaction for clickable elements in hero (canvas grabs everything else) */
+    .hero-content a,
+    .hero-content button {
+      pointer-events: auto;
+    }
+
     .hero-label {
       font-family: var(--font-sans);
       font-size: 0.7rem;
@@ -242,6 +248,57 @@
       color: var(--color-accent);
     }
 
+    .hero h1.hero-title-product {
+      color: var(--color-accent);
+    }
+
+    .hero-learn-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+      margin-bottom: 2.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      align-self: flex-start;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--color-border);
+      opacity: 0;
+      animation: slideUp 1s var(--ease-out-expo) 0.75s forwards;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-learn-more:hover {
+      color: var(--color-text);
+      border-color: var(--color-text);
+    }
+
+    .hero-app-note {
+      margin-top: 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--color-text-subtle);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+
+    .hero-app-note a {
+      color: var(--color-accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196, 73, 47, 0.3);
+      transition: border-color 0.3s ease;
+    }
+
+    .hero-app-note a:hover {
+      border-color: var(--color-accent);
+    }
+
     .hero-description {
       font-family: var(--font-sans);
       font-size: 1.1rem;
@@ -251,6 +308,19 @@
       max-width: 440px;
       opacity: 0;
       animation: slideUp 1s var(--ease-out-expo) 0.7s forwards;
+    }
+
+    .hero-description-link {
+      color: var(--color-accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196, 73, 47, 0.3);
+      padding-bottom: 1px;
+      white-space: nowrap;
+      transition: border-color 0.3s ease;
+    }
+
+    .hero-description-link:hover {
+      border-color: var(--color-accent);
     }
 
     .hero-cta {
@@ -328,6 +398,97 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* Pills row (announcements above headline) */
+    .hero-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: slideUp 1s var(--ease-out-expo) 0.5s forwards;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.45rem 0.95rem;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid var(--color-border);
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--color-text-muted);
+    }
+
+    .hero-pill-new {
+      border-color: rgba(196, 73, 47, 0.4);
+      color: var(--color-accent);
+      background: rgba(196, 73, 47, 0.06);
+    }
+
+    /* App Store row in hero */
+    .hero-apps {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1.75rem;
+      align-items: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: slideUp 1s var(--ease-out-expo) 0.8s forwards;
+    }
+
+    .hero-app-primary {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-app-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-app-primary-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+    }
+
+    .hero-app-badge {
+      height: 46px;
+      display: block;
+    }
+
+    .hero-app-secondary {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid var(--color-border);
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .hero-app-secondary:hover {
+      color: var(--color-text);
+      border-color: var(--color-text);
     }
 
     /* Interaction hint - hidden for now */
@@ -1169,9 +1330,17 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <p class="hero-label">Creative Technology Studio</p>
-        <h1>Spatial software,<br>Creative tools,<br><em>Immersive</em> worlds.</h1>
-        <p class="hero-description">Featured by Apple. Hand crafted by an independent studio in the Pacific Northwest.</p>
+        <p class="hero-label">Featured by Apple</p>
+        <h1 class="hero-title-product">Metaballs</h1>
+        <p class="hero-description">Fun, satisfying sculpting on Apple Vision Pro – and now on iPhone and iPad with Metaballs Mobile!</p>
+        <br/>
+        <a href="metaballs.html" class="hero-learn-more">
+          Learn more
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+        
         <a href="#immersive" class="scroll-cue">
           <span>Explore</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -1272,10 +1441,10 @@
               <div class="project-content">
                 <div class="project-meta">
                   <span class="project-number">03</span>
-                  <span class="project-tag">visionOS</span>
+                  <span class="project-tag">iPhone · iPad · visionOS</span>
                 </div>
                 <h3 class="project-name">Metaballs</h3>
-                <p class="project-desc">Play with blobs and create organic forms in this fun spatial modeling app for Vision Pro.</p>
+                <p class="project-desc">Play with blobs and sculpt organic forms — now on iPhone, iPad, and Apple Vision Pro.</p>
               </div>
               <div class="project-arrow">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">

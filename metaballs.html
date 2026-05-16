@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metaballs: Spatial Sculpting on Apple Vision Pro</title>
-  <meta name="description" content="The most fun, intuitive way to sculpt on Apple Vision Pro">
-  <meta property="og:title" content="Metaballs: Spatial Sculpting on Apple Vision Pro">
-  <meta property="og:description" content="Fun, spatial sculpting on Apple Vision Pro">
+  <title>Metaballs — Playful sculpting on iPhone, iPad, and Apple Vision Pro</title>
+  <meta name="description" content="The most fun, direct way to sculpt organic forms — now on iPhone, iPad, and Apple Vision Pro.">
+  <meta property="og:title" content="Metaballs — Playful sculpting on iPhone, iPad, and Apple Vision Pro">
+  <meta property="og:description" content="The most fun, direct way to sculpt organic forms — now on iPhone, iPad, and Apple Vision Pro.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://www.apposite.ai/images/forest-ledge-wireframe.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Metaballs: Spatial Sculpting on Apple Vision Pro">
-  <meta property="twitter:description" content="Fun, spatial sculpting on Apple Vision Pro">
+  <meta property="twitter:title" content="Metaballs — Playful sculpting on iPhone, iPad, and Apple Vision Pro">
+  <meta property="twitter:description" content="The most fun, direct way to sculpt organic forms — now on iPhone, iPad, and Apple Vision Pro.">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/favicon.png" rel="apple-touch-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -270,6 +270,111 @@
       margin-bottom: 0;
     }
 
+    .content-section p a {
+      color: var(--color-accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(196, 73, 47, 0.3);
+      transition: border-color 0.3s ease;
+    }
+
+    .content-section p a:hover {
+      border-color: var(--color-accent);
+    }
+
+    /* Editions (two-sibling) section */
+    .editions {
+      padding: 6rem 3rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .editions-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .editions-label {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+      margin-bottom: 1rem;
+    }
+
+    .editions-title {
+      font-family: var(--font-sans);
+      font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .editions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .edition-card {
+      background: var(--color-bg-elevated);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.4s ease, transform 0.4s var(--ease-out-expo);
+    }
+
+    .edition-card:hover {
+      border-color: var(--color-text-subtle);
+      transform: translateY(-2px);
+    }
+
+    .edition-platform {
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .edition-name {
+      font-family: var(--font-sans);
+      font-size: 1.75rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--color-text);
+    }
+
+    .edition-desc {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      flex-grow: 1;
+    }
+
+    .edition-card .app-store-badge {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .editions {
+        padding: 4rem 1.5rem 1rem;
+      }
+      .editions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .edition-card {
+        padding: 2rem;
+      }
+    }
+
     /* Feature highlight */
     .feature-highlight {
       background: var(--color-bg-elevated);
@@ -459,35 +564,45 @@
 
   <main>
     <section class="hero">
-      <p class="hero-label">visionOS</p>
+      <p class="hero-label">Featured by Apple</p>
       <h1>Metaballs</h1>
-      <p class="hero-subtitle">Spatial sculpting on Apple Vision Pro</p>
+      <p class="hero-subtitle">Seriously satisfying sculpting.</p>
       <div class="hero-cta">
         <a href="https://www.youtube.com/watch?v=gDrk2HkiDhs" target="_blank" class="btn btn-outline">Watch Video</a>
         <a href="metaballs-help.html" class="btn btn-outline">Help</a>
-        <a href="https://apps.apple.com/us/app/metaballs/id6748781900" target="_blank">
-          <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
-        </a>
       </div>
     </section>
 
     <div class="hero-image">
-      <img src="images/metaballsNew.jpg" alt="Metaballs on Apple Vision Pro">
+      <img src="images/metaballsNew.jpg" alt="Metaballs — sculpt organic forms on iPhone, iPad, and Apple Vision Pro">
     </div>
 
     <section class="content-section">
       <h2>The future is in your hands</h2>
-      <p>Metaballs: Spatial is the most fun, direct way to sculpt on Apple Vision Pro. There's nothing else like it.</p>
-      <p>Drag simple primitives into the scene and they intuitively fuse together. Apply different materials, and watch them blend smoothly. It's the most direct, hands-on creation experience for 3D creation - tailor-made for visionOS.</p>
+      <p>Metaballs is the most fun, direct way to sculpt organic forms.</p>
+      <p>Drag simple primitives into the scene and they intuitively fuse together. Apply different materials, and watch them blend smoothly. It's the most hands-on creation experience for 3D modeling.</p>
     </section>
-
-    <section class="cta-section">
-      <p class="cta-label">Available Now</p>
-      <h2>Ready to sculpt?</h2>
-      <div class="cta-buttons">
-        <a href="https://apps.apple.com/us/app/metaballs/id6748781900" target="_blank">
-          <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
-        </a>
+    <section class="editions">
+      <div class="editions-header">
+        <h2 class="editions-title">Choose your edition</h2>
+      </div>
+      <div class="editions-grid">
+        <article class="edition-card">
+          <p class="edition-platform">Apple Vision Pro</p>
+          <h3 class="edition-name">Metaballs: Spatial</h3>
+          <p class="edition-desc">Hands-on sculpting in three dimensions. Drag primitives into the space around you, rotate them with your hands, and watch the shapes satisfyingly fuse together.</p>
+          <a href="https://apps.apple.com/us/app/metaballs/id6748781900" target="_blank" aria-label="Download Metaballs: Spatial on the App Store">
+            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
+          </a>
+        </article>
+        <article class="edition-card">
+          <p class="edition-platform">iPhone &amp; iPad</p>
+          <h3 class="edition-name">Metaballs Mobile</h3>
+          <p class="edition-desc">The same playful sculpting, now in your pocket. Tap, drag, and blend organic forms anywhere you go.</p>
+          <a href="https://apps.apple.com/us/app/metaballs-mobile/id6761600536" target="_blank" aria-label="Download Metaballs Mobile on the App Store">
+            <img src="images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store" class="app-store-badge">
+          </a>
+        </article>
       </div>
     </section>
   </main>
