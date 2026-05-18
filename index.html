@@ -257,6 +257,41 @@
       text-decoration: none;
     }
 
+    /* ADA nominee laurel callout */
+    .ada-nominee {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      align-self: flex-start;
+      margin: 0.5rem 0 2rem;
+      opacity: 0;
+      animation: slideUp 1s var(--ease-out-expo) 0.65s forwards;
+    }
+
+    .ada-laurel {
+      display: inline-block;
+      width: 32px;
+      height: 48px;
+      background: var(--color-accent);
+      -webkit-mask: url('images/laurel.png') center/contain no-repeat;
+      mask: url('images/laurel.png') center/contain no-repeat;
+      flex-shrink: 0;
+    }
+
+    .ada-laurel-right {
+      transform: scaleX(-1);
+    }
+
+    .ada-text {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      white-space: nowrap;
+    }
+
     .hero-learn-more {
       display: inline-flex;
       align-items: center;
@@ -1335,8 +1370,12 @@
   <main>
     <section class="hero">
       <div class="hero-content">
-        <p class="hero-label">Featured by Apple</p>
         <h1 class="hero-title-product"><a href="metaballs.html">Metaballs</a></h1>
+        <div class="ada-nominee">
+          <span class="ada-laurel" aria-hidden="true"></span>
+          <span class="ada-text">Apple Design Award Nominee, 2026</span>
+          <span class="ada-laurel ada-laurel-right" aria-hidden="true"></span>
+        </div>
         <p class="hero-description">Fun, satisfying sculpting on Apple Vision Pro – and now on iPhone and iPad with Metaballs Mobile!</p>
         <br/>
         <a href="metaballs.html" class="hero-learn-more">
