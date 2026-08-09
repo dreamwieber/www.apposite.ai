@@ -373,6 +373,229 @@ nav {
 }
 
 /* --------------------------------------------------------------------------
+   Tuning pages — /dial/tunings/ and /dial/tunings/<slug>/
+   Ported from the design system's templates/dial-tuning-page. These pages are
+   generated: edit the generator in the design system's tools/tuning-pages/,
+   not the emitted HTML.
+   -------------------------------------------------------------------------- */
+
+.dial-tuning-hero {
+  background: var(--dial-orange);
+  color: var(--dial-on-orange);
+  padding: 9.5rem 0 6.5rem;
+}
+
+.dial-tuning-hero .dial-eyebrow { color: rgba(255, 247, 242, 0.7); }
+.dial-tuning-hero .dial-display { margin-top: 1.25rem; }
+
+.dial-tuning-hero .dial-lede {
+  margin-top: 1.375rem;
+  color: var(--dial-on-orange-muted);
+  max-width: 640px;
+}
+
+.dial-crumb {
+  display: inline-block;
+  margin-bottom: 1.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 247, 242, 0.7);
+}
+
+.dial-crumb:hover { color: var(--dial-on-orange); }
+
+/* The chart card overlaps the bottom of the orange band. */
+.dial-chart-pull { position: relative; margin-top: -3.5rem; }
+
+.dial-chart-card {
+  background: var(--dial-cream);
+  border-radius: var(--dial-radius-panel);
+  padding: 2.25rem 2.5rem 2.5rem;
+}
+
+.dial-chart-heads {
+  display: flex;
+  gap: 3rem;
+}
+
+.dial-chart-fig { flex: 1; min-width: 0; }
+
+.dial-chart-fig.is-narrow {
+  flex: none;
+  width: 46%;
+  margin: 0 auto;
+}
+
+.dial-chart-cap {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dial-ink-subtle);
+  padding-bottom: 1.125rem;
+  border-bottom: 1px solid var(--dial-rule);
+}
+
+.dial-chart-fig svg { display: block; width: 100%; height: auto; margin-top: 1rem; }
+
+/* Inline-SVG headstock chart colours */
+.dial-hs-line { fill: var(--dial-cream); stroke: rgba(43, 42, 40, 0.55); }
+.dial-hs-post { fill: #fdfcfa; stroke: rgba(43, 42, 40, 0.55); }
+.dial-hs-dot { fill: rgba(43, 42, 40, 0.55); }
+.dial-hs-label { font-family: var(--dial-font); font-size: 38px; font-weight: 600; letter-spacing: -0.02em; fill: var(--dial-ink); }
+.dial-hs-lead { stroke: rgba(43, 42, 40, 0.4); stroke-width: 2; }
+
+/* String / frequency table */
+.dial-strings {
+  display: flex;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--dial-rule);
+}
+
+.dial-string { flex: 1; }
+
+.dial-string-pos { font-size: 0.875rem; color: var(--dial-ink-muted); }
+
+.dial-string-note {
+  margin-top: 0.5rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.dial-string-freq {
+  margin-top: 0.5rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.0625rem;
+  color: var(--dial-ink-muted);
+}
+
+/* Chord diagrams — "A few chords to try" */
+.dial-chords {
+  margin-top: 2.25rem;
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.dial-chord { width: 150px; }
+
+.dial-chord-name {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.dial-chord-pos {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dial-ink-subtle);
+}
+
+.dial-chord svg { display: block; width: 100%; height: auto; margin-top: 0.875rem; }
+
+.dial-cd-line { stroke: rgba(43, 42, 40, 0.45); stroke-width: 1.5; }
+.dial-cd-nut { fill: var(--dial-ink); }
+.dial-cd-dot { fill: var(--dial-ink); }
+.dial-cd-sym { font-family: var(--dial-font); font-size: 14px; fill: var(--dial-ink-muted); }
+.dial-cd-fret { font-family: var(--dial-font); font-size: 14px; font-weight: 600; fill: var(--dial-ink-muted); }
+
+/* "Get in tune" upsell — steps beside the device render */
+.dial-get {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.dial-get-copy { flex: 1; }
+.dial-get-device { flex: none; width: 270px; }
+
+.dial-steps {
+  margin-top: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+}
+
+.dial-step { display: flex; gap: 1.125rem; }
+
+.dial-step-num {
+  flex: none;
+  width: 28px; height: 28px;
+  border-radius: var(--dial-radius-pill);
+  background: var(--dial-orange);
+  color: var(--dial-on-orange);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dial-step-title { font-size: 1.125rem; font-weight: 600; }
+
+.dial-step-desc {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  color: var(--dial-ink-muted);
+}
+
+/* Nearby / index tuning lists — rows of name + notes over hairlines */
+.dial-tuning-list {
+  margin-top: 1.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3.5rem;
+}
+
+.dial-tuning-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.125rem 0;
+  border-bottom: 1px solid var(--dial-rule);
+}
+
+.dial-tuning-row-name { font-size: 1.1875rem; font-weight: 600; color: var(--dial-ink); }
+.dial-tuning-row-notes {
+  font-variant-numeric: tabular-nums;
+  font-size: 1rem;
+  color: var(--dial-ink-muted);
+  white-space: nowrap;
+}
+
+a.dial-tuning-row:hover .dial-tuning-row-name { color: var(--dial-orange); }
+
+/* Footer stats block (right side of the dark footer on tuning pages) */
+.dial-footer-stats {
+  font-size: 0.875rem;
+  color: var(--dial-ink-subtle);
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .dial-tuning-hero { padding: 8rem 0 5.5rem; }
+  .dial-chart-card { padding: 1.75rem 1.5rem 2rem; }
+  .dial-chart-heads { flex-direction: column; gap: 2rem; }
+  .dial-chart-fig.is-narrow { width: 100%; max-width: 340px; margin: 0; }
+
+  .dial-strings { flex-wrap: wrap; gap: 1.25rem 0; }
+  .dial-string { flex: none; width: 33.33%; }
+
+  .dial-get { flex-direction: column; gap: 3rem; }
+  .dial-get-device { align-self: center; }
+
+  .dial-tuning-list { grid-template-columns: 1fr; }
+  .dial-footer-stats { text-align: left; }
+}
+
+/* --------------------------------------------------------------------------
    Dial's own footer — dark, distinct from the studio footer
    -------------------------------------------------------------------------- */
 
