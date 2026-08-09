@@ -1,6 +1,7 @@
 /* ==========================================================================
    Dial — sub-brand stylesheet for the apposite.ai/dial subsection.
 
+   Ported from the design system's `templates/dial-landing/DialLanding.dc.html`.
    Dial is Apposite's guitar & ukulele tuner. It deliberately does NOT inherit
    the studio's paper/oxide palette or the Darker Grotesque + Cormorant pairing:
    the app has its own Braun-influenced instrument identity, set by the product
@@ -14,8 +15,8 @@
    Helvetica (the face drawn to compete with Akzidenz) falling back to
    Instrument Sans. Do not add the Akzidenz files to this repo.
 
-   The studio nav and footer on these pages keep the studio's Darker Grotesque
-   so /dial still reads as part of apposite.ai.
+   The studio nav sits on these pages so /dial still reads as part of
+   apposite.ai; the footer is Dial's own.
    ========================================================================== */
 
 :root {
@@ -23,9 +24,9 @@
   --dial-orange: #e1671e;
   --dial-orange-deep: #c4551a;
 
-  /* Instrument surface — the app's screen, warmer and lighter than studio paper */
-  --dial-cream: #f2efeb;
-  --dial-cream-sunk: #e8e4de;
+  /* Surfaces */
+  --dial-page: #fbfaf8;            /* the landing page ground */
+  --dial-cream: #f2efeb;           /* the app's screen, and panel fills */
 
   /* Marks on the instrument surface */
   --dial-ink: #2b2a28;
@@ -34,25 +35,22 @@
 
   /* Marks on the orange field */
   --dial-on-orange: #fff7f2;
-  --dial-on-orange-muted: rgba(255, 247, 242, 0.86);
-  --dial-on-orange-subtle: rgba(255, 247, 242, 0.72);
-  --dial-rule-on-orange: rgba(255, 247, 242, 0.28);
-  --dial-rule-on-cream: rgba(43, 42, 40, 0.12);
+  --dial-on-orange-muted: rgba(255, 247, 242, 0.82);
+  --dial-rule: rgba(43, 42, 40, 0.12);
 
   /* One family does everything. Numerals run tabular so frequency columns
      align; there is no separate mono. */
   --dial-font: "Helvetica Neue", Helvetica, "Instrument Sans", Arial, sans-serif;
 
-  --dial-radius-artwork: 28px;
+  --dial-radius-panel: 28px;
   --dial-radius-pill: 100px;
+  --dial-radius-icon: 14px;
 
-  /* Studio chrome, carried over from the site's :root blocks so nav and footer
-     match the rest of apposite.ai exactly. */
+  /* Studio chrome, carried over from the site's :root blocks so the nav
+     matches the rest of apposite.ai exactly. */
   --color-bg: #faf9f7;
   --color-text: #1a1918;
   --color-text-muted: #6b6560;
-  --color-text-subtle: #9e9890;
-  --color-border: rgba(26, 25, 24, 0.08);
   --font-sans: "Darker Grotesque", -apple-system, sans-serif;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -63,7 +61,7 @@ html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
   font-family: var(--dial-font);
-  background: var(--color-bg);
+  background: var(--dial-page);
   color: var(--dial-ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -71,11 +69,15 @@ body {
 
 ::selection { background: var(--dial-orange); color: var(--dial-on-orange); }
 
-img { max-width: 100%; display: block; }
+/* height:auto is load-bearing — the img tags carry width/height attributes for
+   layout stability, and without it the intrinsic height wins over the CSS width. */
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--dial-orange-deep); text-decoration: none; }
+a:hover { color: var(--dial-orange); }
 
 /* --------------------------------------------------------------------------
-   Studio chrome — nav and footer, lifted from apps.html so /dial reads as
-   part of the site.
+   Studio nav — lifted from apps.html so /dial reads as part of the site.
    -------------------------------------------------------------------------- */
 
 nav {
@@ -86,7 +88,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(250, 249, 247, 0.85);
+  background: rgba(251, 250, 248, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -148,287 +150,259 @@ nav {
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
 
-footer {
-  padding: 2rem 4rem;
-  background: var(--color-bg);
-  border-top: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-left {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  color: var(--color-text-subtle);
-}
-
-.footer-links { display: flex; gap: 2.5rem; }
-
-.footer-links a {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-subtle);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover { color: var(--color-text); }
-
 /* --------------------------------------------------------------------------
    Layout
    -------------------------------------------------------------------------- */
 
 .dial-wrap {
-  max-width: 1060px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 3rem;
+  padding: 0 3.5rem;
 }
 
-.dial-band { padding: 6rem 0; }
-.dial-band--orange { background: var(--dial-orange); color: var(--dial-on-orange); }
-.dial-band--cream { background: var(--dial-cream); }
-.dial-band--paper { background: var(--color-bg); }
+.dial-section { margin-top: 6.5rem; }
 
 /* --------------------------------------------------------------------------
    Type
    -------------------------------------------------------------------------- */
 
 .dial-eyebrow {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--dial-ink-subtle);
 }
 
-.dial-band--orange .dial-eyebrow { color: var(--dial-on-orange-subtle); }
-
 .dial-display {
-  font-size: clamp(3.25rem, 8vw, 6rem);
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
   line-height: 0.92;
   font-weight: 700;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
+  margin-left: -0.06em;
+}
+
+.dial-lede {
+  font-size: clamp(1.25rem, 2vw, 1.4375rem);
+  line-height: 1.45;
+  font-weight: 500;
+  color: var(--dial-ink-muted);
+}
+
+.dial-statement {
+  font-size: clamp(2rem, 4vw, 2.875rem);
+  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -0.028em;
 }
 
 .dial-h2 {
-  font-size: clamp(1.9rem, 3.6vw, 2.5rem);
-  line-height: 1.1;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.025em;
 }
 
-.dial-lede {
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  line-height: 1.45;
-  font-weight: 500;
-}
-
 .dial-body {
-  font-size: 1.1rem;
+  font-size: 1.1875rem;
   line-height: 1.65;
   color: var(--dial-ink-muted);
 }
 
-.dial-band--orange .dial-body { color: var(--dial-on-orange-muted); }
+.dial-note { font-size: 0.875rem; line-height: 1.5; color: var(--dial-ink-subtle); }
 
 .dial-num { font-variant-numeric: tabular-nums; }
 
 /* --------------------------------------------------------------------------
-   Buttons
+   Buttons and the app icon
    -------------------------------------------------------------------------- */
 
 .dial-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: inline-block;
   background: var(--dial-orange);
   color: var(--dial-on-orange);
-  font-family: var(--dial-font);
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 0.9rem 1.6rem;
+  padding: 0.9375rem 1.75rem;
   border-radius: var(--dial-radius-pill);
   white-space: nowrap;
   transition: background 0.3s var(--ease-out-expo);
 }
 
-.dial-btn:hover { background: var(--dial-orange-deep); }
+.dial-btn:hover { background: var(--dial-orange-deep); color: var(--dial-on-orange); }
 
-.dial-btn--on-orange { background: var(--dial-on-orange); color: var(--dial-orange-deep); }
-.dial-btn--on-orange:hover { background: #fff; }
-
-.dial-badge img {
-  height: 48px;
-  width: auto;
-  transition: transform 0.3s var(--ease-out-expo);
-}
-
-.dial-badge:hover img { transform: translateY(-2px); }
-
-/* --------------------------------------------------------------------------
-   Devices — the app screens are transparent-cornered PNGs, so they sit on any
-   band without a plate behind them.
-   -------------------------------------------------------------------------- */
-
-.dial-device { width: 100%; max-width: 300px; height: auto; }
-
-/* Hero — text beside the tuner screen, which overhangs the band below it. */
-.dial-hero-grid {
-  display: grid;
-  grid-template-columns: 1fr minmax(230px, 280px);
-  gap: 4rem;
-  align-items: center;
-}
-
-/* Optical balance against the overhanging device beside it. */
-.dial-hero-copy { padding-bottom: 5rem; }
-
-/* Two even columns: a heading beside a list or steps. */
-.dial-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+.dial-icon {
+  width: 62px; height: 62px;
+  border-radius: var(--dial-radius-icon);
+  box-shadow: 0 0 14px rgba(43, 42, 40, 0.09), 0 4px 12px rgba(43, 42, 40, 0.07);
 }
 
 /* --------------------------------------------------------------------------
-   Feature rows
+   Hero
    -------------------------------------------------------------------------- */
 
-.dial-feature {
-  display: grid;
-  grid-template-columns: 1fr minmax(260px, 320px);
-  gap: 4.5rem;
-  align-items: center;
-  padding: 5rem 0;
-  border-top: 1px solid var(--dial-rule-on-cream);
-}
-
-.dial-feature .dial-device { max-width: 264px; }
-
-.dial-feature--flip { grid-template-columns: minmax(260px, 320px) 1fr; }
-.dial-feature--flip .dial-feature-text { order: 2; }
-.dial-feature--flip .dial-device { order: 1; }
-
-.dial-feature-text > * + * { margin-top: 1.25rem; }
-
-/* --------------------------------------------------------------------------
-   Spec list — the "22 tunings · ±1 cent" style row of facts
-   -------------------------------------------------------------------------- */
-
-.dial-specs {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-
-.dial-spec-value {
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-
-.dial-spec-label {
-  margin-top: 0.6rem;
-  font-size: 0.9rem;
-  color: var(--dial-ink-muted);
-}
-
-.dial-band--orange .dial-spec-label { color: var(--dial-on-orange-muted); }
-
-/* --------------------------------------------------------------------------
-   Tuning table — reused by the per-tuning pages under /dial/tunings/
-   -------------------------------------------------------------------------- */
-
-.dial-tuning-group + .dial-tuning-group { margin-top: 3rem; }
-
-.dial-tuning-list {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 3.5rem;
-}
-
-.dial-tuning-row {
+.dial-hero {
+  padding-top: 10.5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 1.5rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--dial-rule-on-cream);
-  color: inherit;
-  text-decoration: none;
+  gap: 5rem;
+  align-items: center;
 }
 
-.dial-tuning-name { font-size: 1.05rem; font-weight: 600; }
+.dial-hero-copy { flex: 1; }
+.dial-hero .dial-lede { max-width: 420px; }
+.dial-hero-device { flex: none; width: 340px; }
 
-.dial-tuning-notes {
-  font-variant-numeric: tabular-nums;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  color: var(--dial-ink-muted);
-  white-space: nowrap;
-}
-
-.dial-tuning-row.is-free .dial-tuning-name { color: var(--dial-orange); }
-
-/* Marks the tunings included for free. Never put this on a locked tuning. */
-.dial-tag {
-  margin-left: 0.6rem;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--dial-orange);
-  vertical-align: 0.15em;
+.dial-cta-row {
+  margin-top: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.375rem;
 }
 
 /* --------------------------------------------------------------------------
-   Steps — numbered instructions
+   Stat strip — hairline top and bottom, no fill
    -------------------------------------------------------------------------- */
 
-.dial-steps { display: flex; flex-direction: column; gap: 1.4rem; }
+.dial-stats {
+  display: flex;
+  border-top: 1px solid var(--dial-rule);
+  border-bottom: 1px solid var(--dial-rule);
+}
 
-.dial-step { display: flex; gap: 1.1rem; }
+.dial-stat { flex: 1; padding: 1.875rem 0; }
 
-.dial-step-num {
-  flex: none;
-  width: 28px; height: 28px;
-  border-radius: var(--dial-radius-pill);
+.dial-stat-value {
+  font-variant-numeric: tabular-nums;
+  font-size: 2.375rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.dial-stat-label {
+  margin-top: 0.5625rem;
+  font-size: 0.875rem;
+  color: var(--dial-ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Orange statement band — full bleed
+   -------------------------------------------------------------------------- */
+
+.dial-band {
   background: var(--dial-orange);
   color: var(--dial-on-orange);
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6rem 0;
 }
 
-.dial-step-title { font-size: 1.05rem; font-weight: 600; }
-.dial-step-desc { margin-top: 0.2rem; font-size: 1rem; color: var(--dial-ink-muted); }
+.dial-band .dial-statement { max-width: 820px; }
+
+.dial-band .dial-body {
+  margin-top: 1.625rem;
+  color: var(--dial-on-orange-muted);
+  max-width: 620px;
+}
 
 /* --------------------------------------------------------------------------
-   Cards
+   Three-up feature columns
    -------------------------------------------------------------------------- */
 
-.dial-card {
-  background: var(--dial-cream);
-  border-radius: var(--dial-radius-artwork);
-  padding: 2.5rem 2.75rem;
+.dial-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
 }
 
-.dial-band--cream .dial-card { background: var(--color-bg); }
+.dial-feature-title {
+  margin-top: 1.625rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.dial-feature-desc {
+  margin-top: 0.5625rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dial-ink-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Split — a heading beside a paragraph, over a hairline
+   -------------------------------------------------------------------------- */
+
+.dial-split {
+  border-top: 1px solid var(--dial-rule);
+  padding-top: 3.5rem;
+  display: flex;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.dial-split .dial-h2 { flex: none; width: 340px; }
+.dial-split .dial-body { max-width: 520px; }
+
+/* --------------------------------------------------------------------------
+   Closing panel
+   -------------------------------------------------------------------------- */
+
+.dial-panel {
+  background: var(--dial-cream);
+  border-radius: var(--dial-radius-panel);
+  padding: 3.5rem 3.5rem 3.75rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.dial-panel-title {
+  font-size: 2.125rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.dial-panel-desc {
+  margin-top: 0.875rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--dial-ink-muted);
+  max-width: 400px;
+}
+
+/* --------------------------------------------------------------------------
+   Dial's own footer — dark, distinct from the studio footer
+   -------------------------------------------------------------------------- */
+
+.dial-footer { background: var(--dial-ink); padding: 2.75rem 0; }
+
+.dial-footer .dial-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.dial-footer-left { font-size: 0.875rem; color: var(--dial-ink-subtle); }
+.dial-footer-left a { color: var(--dial-cream); }
+.dial-footer-left a:hover { color: #fff; }
+
+.dial-footer-links { display: flex; gap: 1.75rem; font-size: 0.875rem; }
+.dial-footer-links a { color: var(--dial-ink-subtle); }
+.dial-footer-links a:hover { color: var(--dial-cream); }
 
 /* --------------------------------------------------------------------------
    Responsive
    -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .dial-features { grid-template-columns: 1fr; gap: 3rem; max-width: 420px; }
+  .dial-split { flex-direction: column; gap: 1.5rem; }
+  .dial-split .dial-h2 { width: auto; }
+}
 
 @media (max-width: 860px) {
   nav { padding: 1.5rem 2rem; }
@@ -438,7 +412,7 @@ footer {
     position: fixed;
     top: 0; right: 0;
     width: 100%; height: 100vh;
-    background: var(--color-bg);
+    background: var(--dial-page);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -452,39 +426,31 @@ footer {
   .nav-links a { font-size: 1rem; color: var(--color-text); }
 
   .dial-wrap { padding: 0 1.5rem; }
+  .dial-section { margin-top: 4.5rem; }
+
+  .dial-hero {
+    padding-top: 8rem;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: flex-start;
+  }
+
+  .dial-hero-device { width: 100%; max-width: 300px; align-self: center; }
+
+  .dial-cta-row { flex-wrap: wrap; gap: 1rem 1.375rem; }
+
+  .dial-stats { flex-direction: column; }
+  .dial-stat { padding: 1.25rem 0; border-bottom: 1px solid var(--dial-rule); }
+  .dial-stat:last-child { border-bottom: 0; }
+
   .dial-band { padding: 4rem 0; }
 
-  .dial-feature,
-  .dial-feature--flip {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    padding: 3.5rem 0;
-    justify-items: center;
-    text-align: center;
+  .dial-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5rem 2rem 2.75rem;
   }
 
-  /* Stacked, every row reads heading first — including the flipped ones. */
-  .dial-feature .dial-feature-text { order: 1; }
-  .dial-feature .dial-device { order: 2; }
-
-  .dial-hero-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    justify-items: center;
-    text-align: center;
-  }
-
-  .dial-hero-copy { padding-bottom: 0; }
-
-  .dial-hero-grid .dial-lede,
-  .dial-hero-grid .dial-body { margin-left: auto; margin-right: auto; }
-
-  .dial-split { grid-template-columns: 1fr; gap: 2.5rem; }
-
-  .dial-steps { text-align: left; }
-  .dial-specs { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
-  .dial-tuning-list { grid-template-columns: 1fr; }
-  .dial-card { padding: 2rem 1.5rem; }
-
-  footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem; }
+  .dial-footer .dial-wrap { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
 }
