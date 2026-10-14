@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Soft Objects | Apposite</title>
+  <meta name="description" content="Grab, stretch and toss soft objects — gummy, velvet, clay and frosted glass. A small real-time study from Apposite.">
+  <link rel="canonical" href="https://www.apposite.ai/soft-objects/">
+  <meta property="og:title" content="Soft Objects">
+  <meta property="og:description" content="Grab, stretch and toss soft objects — gummy, velvet, clay and frosted glass.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.apposite.ai/soft-objects/">
+  <meta property="og:image" content="https://www.apposite.ai/soft-objects/card.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#faf9f7">
+  <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../images/favicon.png" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Studio chrome — the nav below is lifted verbatim from apps.html (via css/dial.css) */
+    :root {
+      --color-bg: #faf9f7;
+      --color-text: #1a1918;
+      --color-text-muted: #6b6560;
+      --font-sans: "Darker Grotesque", -apple-system, sans-serif;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --nav-h: 5.25rem; /* measured at runtime, see script */
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; overflow: hidden; overscroll-behavior: none; }
+    body { background: var(--color-bg); color: var(--color-text); -webkit-font-smoothing: antialiased; }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(251, 250, 248, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .logo {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--color-text);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .nav-links a:hover { color: var(--color-text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+    .nav-toggle span { width: 20px; height: 1.5px; background: var(--color-text); transition: all 0.3s ease; }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
+    @media (max-width: 860px) {
+      nav { padding: 1.5rem 2rem; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        width: 100%; height: 100vh;
+        background: var(--color-bg);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .nav-links.active { opacity: 1; visibility: visible; }
+      .nav-links a { font-size: 1rem; color: var(--color-text); }
+    }
+
+    /* The demo fills the viewport below the nav; its edges are the walls. */
+    .stage { position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0; background: #efe3e4; }
+    #c { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; opacity: 0;
+      transition: opacity 1s var(--ease-out-expo); -webkit-tap-highlight-color: transparent; user-select: none; }
+    #c.on { opacity: 1; }
+    #c.quick { transition-duration: 0.3s; }
+    .stage.fallback { background: #efe3e4 url(fallback.jpg) center / cover no-repeat; }
+    .stage.fallback #c, .stage.fallback #quality { display: none; }
+    .stage.fallback .signup { opacity: 1; transform: translate(-50%, 0); }
+
+    /* Quality selector in studio micro-type: uppercase, tracked, hairline underline when active */
+    #quality { position: absolute; right: max(1.5rem, env(safe-area-inset-right)); bottom: max(1.1rem, env(safe-area-inset-bottom));
+      display: flex; gap: 1.25rem; opacity: 0; pointer-events: none; transition: opacity 1s var(--ease-out-expo); }
+    #quality.ready { opacity: 0.85; pointer-events: auto; }
+    #quality { z-index: 2; }
+    #quality.ready:hover { opacity: 1; }
+    #quality button { all: unset; cursor: pointer; position: relative; padding: 0.25rem 0;
+      font-family: var(--font-sans); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--color-text-muted); transition: color 0.3s ease; }
+    #quality button::after { content: ''; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+      background: var(--color-text); transition: width 0.4s var(--ease-out-expo); }
+    #quality button:hover, #quality button.on { color: var(--color-text); }
+    #quality button:hover::after, #quality button.on::after { width: 100%; }
+    /* Signup over the bottom of the stage: no card, just a paper scrim for legibility */
+    .stage::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 15rem; pointer-events: none;
+      background: linear-gradient(to bottom, rgba(250, 249, 247, 0), rgba(250, 249, 247, 0.55) 62%, rgba(250, 249, 247, 0.72)); }
+    .signup { position: absolute; z-index: 2; left: 50%; transform: translateX(-50%);
+      bottom: calc(max(1.1rem, env(safe-area-inset-bottom)) + 2.4rem);
+      width: min(25rem, calc(100% - 3rem)); text-align: center; pointer-events: none;
+      font-family: var(--font-sans); color: var(--color-text); text-shadow: 0 0 18px rgba(250, 249, 247, 0.9);
+      opacity: 0; transform: translate(-50%, 12px); transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo); }
+    .signup.ready { opacity: 1; transform: translate(-50%, 0); }
+    .signup > * { pointer-events: auto; }
+    .signup-title { font-size: 1.35rem; font-weight: 500; line-height: 1.2; letter-spacing: 0; }
+    .signup-text { margin-top: 0.15rem; font-size: 1.05rem; font-weight: 400; line-height: 1.5; color: var(--color-text-muted); }
+    .subscribe-form { display: flex; max-width: 400px; margin: 0.9rem auto 0; border-bottom: 1px solid rgba(26, 25, 24, 0.25); transition: border-color 0.3s ease; }
+    .subscribe-form:focus-within { border-color: var(--color-text); }
+    .subscribe-input { flex: 1; min-width: 0; background: none; border: none; outline: none; border-radius: 0;
+      font-family: var(--font-sans); font-size: 1rem; font-weight: 400; color: var(--color-text); padding: 0.75rem 0; letter-spacing: 0.02em; }
+    .subscribe-input::placeholder { color: #9e9890; }
+    .subscribe-btn { background: none; border: none; cursor: pointer; color: #9e9890; padding: 0.75rem 0 0.75rem 1rem; transition: color 0.3s ease, transform 0.3s ease; }
+    .subscribe-btn:hover { color: var(--color-text); transform: translateX(2px); }
+    .subscribe-btn svg { width: 18px; height: 18px; display: block; }
+    .subscribe-form[aria-busy="true"] { opacity: 0.5; pointer-events: none; }
+    .signup-msg { min-height: 1.4em; margin-top: 0.6rem; font-size: 0.95rem; color: var(--color-text-muted); }
+    .signup-msg.done { color: var(--color-text); font-weight: 500; }
+    @media (max-width: 480px) { .signup-title { font-size: 1.2rem; } .signup-text { font-size: 0.98rem; } }
+    #debug { position: fixed; left: 10px; bottom: 8px; font: 11px ui-monospace, monospace; color: #0009; pointer-events: none; }
+  </style>
+  <script type="module" crossorigin src="./assets/apposite-Ucg4l3IZ.js"></script>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Apposite</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../immersive.html">Immersive</a></li>
+      <li><a href="../support.html">Support</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="stage">
+    <canvas id="c" aria-label="Soft objects you can grab and toss"></canvas>
+    <section class="signup" aria-label="Get notified">
+      <p class="signup-title">Coming soon to Metaballs Mobile.</p>
+      <p class="signup-text">Sign up to get notified when it&rsquo;s available!</p>
+      <!-- Mailchimp: same list as /apps; this form's id + tags put signups in the Metaballs Mobile segment -->
+      <form class="subscribe-form" action="https://apposite.us21.list-manage.com/subscribe/post?u=4d77e4b606f49ab33e39b6777&amp;id=a4e7eb56d9&amp;f_id=002d40e6f0" method="post" target="_blank" novalidate>
+        <input type="hidden" name="tags" value="3146841,3146842">
+        <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_4d77e4b606f49ab33e39b6777_a4e7eb56d9" tabindex="-1" value=""></div>
+        <input type="email" name="EMAIL" class="subscribe-input" placeholder="Your email" autocomplete="email" required aria-label="Email address">
+        <button type="submit" class="subscribe-btn" aria-label="Subscribe">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </form>
+      <p class="signup-msg" role="status" aria-live="polite"></p>
+    </section>
+    <div id="quality" aria-label="Quality"><button data-q="low">Low</button><button data-q="medium">Med</button><button data-q="high">High</button></div>
+  </main>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+    // Signup: submit in the background (Mailchimp's JSONP endpoint) so visitors stay in the demo.
+    // If that endpoint can't be reached, fall back to the normal form post in a new tab.
+    (function () {
+      const form = document.querySelector('.subscribe-form');
+      const email = form.querySelector('.subscribe-input');
+      const msg = document.querySelector('.signup-msg');
+      const say = (text, done) => { msg.textContent = text; msg.classList.toggle('done', !!done); };
+      const clean = (html) => { const d = document.createElement('div'); d.innerHTML = html; return (d.textContent || '').replace(/^\d+\s*-\s*/, '').trim(); };
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!email.checkValidity()) { say('Please enter a valid email.'); email.focus(); return; }
+        const cb = 'mc_cb_' + Date.now();
+        const url = form.action.replace('/post?', '/post-json?') + '&c=' + cb + '&' + new URLSearchParams(new FormData(form));
+        const script = document.createElement('script');
+        let settled = false;
+        const finish = () => { settled = true; form.removeAttribute('aria-busy'); script.remove(); delete window[cb]; };
+        const timer = setTimeout(() => { if (!settled) { finish(); form.submit(); say(''); } }, 8000);
+        window[cb] = (res) => {
+          clearTimeout(timer);
+          finish();
+          const text = clean(res && res.msg || '');
+          if (res && res.result === 'success') {
+            say(/confirm/i.test(text) ? 'Almost there \u2014 check your inbox to confirm.' : 'Thank you! We\u2019ll let you know.', true);
+            form.reset();
+          } else if (/already subscribed/i.test(text)) {
+            say('You\u2019re already on the list.', true);
+          } else {
+            say(text || 'Something went wrong. Please try again.');
+          }
+        };
+        script.onerror = () => { clearTimeout(timer); if (!settled) { finish(); form.submit(); } };
+        form.setAttribute('aria-busy', 'true');
+        say('');
+        script.src = url;
+        document.body.appendChild(script);
+      });
+      // reveal with the scene
+      const c = document.getElementById('c');
+      new MutationObserver(() => { if (c.classList.contains('on')) document.querySelector('.signup').classList.add('ready'); })
+        .observe(c, { attributes: true, attributeFilter: ['class'] });
+    })();
+
+    // the stage starts where the nav ends (nav height depends on breakpoint + font load)
+    const nav = document.querySelector('nav');
+    const fit = () => document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    new ResizeObserver(fit).observe(nav);
+    fit();
+  </script>
+</body>
+</html>
