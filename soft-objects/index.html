@@ -143,6 +143,10 @@
     .signup.ready { opacity: 1; transform: translate(-50%, 0); }
     .signup > * { pointer-events: auto; }
     .signup-title { font-size: 1.35rem; font-weight: 500; line-height: 1.2; letter-spacing: 0; }
+    /* app link: hairline underline at rest (tappable on touch), full ink on hover */
+    .signup-title a { color: inherit; text-decoration: none; padding-bottom: 1px;
+      background: linear-gradient(rgba(26, 25, 24, 0.3), rgba(26, 25, 24, 0.3)) 0 100% / 100% 1px no-repeat; }
+    .signup-title a:hover { background-image: linear-gradient(var(--color-text), var(--color-text)); }
     .signup-text { margin-top: 0.15rem; font-size: 1.05rem; font-weight: 400; line-height: 1.5; color: var(--color-text-muted); }
     .subscribe-form { display: flex; max-width: 400px; margin: 0.9rem auto 0; border-bottom: 1px solid rgba(26, 25, 24, 0.25); transition: border-color 0.3s ease; }
     .subscribe-form:focus-within { border-color: var(--color-text); }
@@ -179,7 +183,7 @@
   <main class="stage">
     <canvas id="c" aria-label="Soft objects you can grab and toss"></canvas>
     <section class="signup" aria-label="Get notified">
-      <p class="signup-title">Coming soon to Metaballs Mobile.</p>
+      <p class="signup-title">Coming soon to <a href="https://apps.apple.com/us/app/metaballs-mobile/id6761600536" target="_blank" rel="noopener">Metaballs Mobile</a>.</p>
       <p class="signup-text">Sign up to get notified when it&rsquo;s available!</p>
       <!-- Mailchimp: same list as /apps; this form's id + tags put signups in the Metaballs Mobile segment -->
       <form class="subscribe-form" action="https://apposite.us21.list-manage.com/subscribe/post?u=4d77e4b606f49ab33e39b6777&amp;id=a4e7eb56d9&amp;f_id=002d40e6f0" method="post" target="_blank" novalidate>
