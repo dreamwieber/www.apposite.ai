@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soft Break — A Brick Breaker Made of Jelly | Apposite</title>
+  <meta name="description" content="Soft Break is a small, beautiful, tactile brick breaker for iPhone, iPad and Apple Vision Pro. The bricks squish, wobble and break apart. No ads, no in-app purchases.">
+  <link rel="canonical" href="https://www.apposite.ai/softbreak/">
+  <meta property="og:title" content="Soft Break — A Brick Breaker Made of Jelly">
+  <meta property="og:description" content="A small, beautiful, tactile game you buy once and keep. No ads, no in-app purchases.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.apposite.ai/softbreak/">
+  <meta property="og:image" content="https://www.apposite.ai/images/softbreak/header.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6825526231">
+  <meta name="theme-color" content="#eef0f6">
+  <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+  <link href="../images/softbreak/icon.png" rel="apple-touch-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/softbreak.css">
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">Apposite</a>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../immersive.html">Immersive</a></li>
+      <li><a href="../support.html">Support</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <header class="sb-wrap sb-hero">
+      <img class="sb-icon" src="../images/softbreak/icon.png" width="512" height="512" alt="Soft Break app icon">
+      <h1 class="sb-name">Soft Break</h1>
+      <p class="sb-lede">A brick breaker made of jelly.</p>
+      <p class="sb-meta"><span>iPhone &amp; iPad</span> · <span>Apple Vision Pro</span> · <span>No ads</span> · <span>No in-app purchases</span></p>
+      <a class="sb-badge" href="https://apps.apple.com/app/id6825526231" target="_blank" rel="noopener">
+        <img src="../images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store">
+      </a>
+      <div class="sb-header">
+        <video src="../media/softbreak/header.mp4" poster="../images/softbreak/header.jpg" autoplay muted loop playsinline aria-label="Soft, glossy bricks, a ball and sculptures drifting in a pale blue space"></video>
+      </div>
+    </header>
+
+    <section class="sb-wrap">
+      <div class="sb-play">
+        <div class="sb-phone">
+          <video src="../media/softbreak/trailer.mp4" poster="../images/softbreak/trailer.jpg" autoplay muted loop playsinline aria-label="Soft Break gameplay: the ball breaks soft bricks that wobble and fall"></video>
+        </div>
+        <ul class="sb-points">
+          <li>
+            <h2>Bricks you can squish.</h2>
+            <p>They dent, wobble and break apart. Catch the falling pieces and send them back up.</p>
+          </li>
+          <li>
+            <h2>A streak plays a melody.</h2>
+            <p>Every hit plays the next note up the scale, in key with a calm, ambient soundtrack.</p>
+          </li>
+          <li>
+            <h2>Made to feel good.</h2>
+            <p>Eight hand-built worlds, haptics for every material, and smooth play at up to 120 Hz. On Apple Vision Pro, play in mixed reality, or in a beautiful, minimalist immersive space that evolves with the game&rsquo;s levels.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sb-wrap sb-close">
+      <p>Buy it once and keep it.<br>No ads, no in-app purchases, no&nbsp;tracking.</p>
+      <a class="sb-badge" href="https://apps.apple.com/app/id6825526231" target="_blank" rel="noopener">
+        <img src="../images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.png" alt="Download on the App Store">
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="sb-wrap">
+      <div>Soft Break — an <a href="../index.html">Apposite</a> game.</div>
+      <div class="sb-footer-links">
+        <a href="../support.html">Support</a>
+        <a href="../softbreak-privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+    // reduced motion: show the stills instead of the loops
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('video').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+    }
+  </script>
+</body>
+</html>
